@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $auction_list} -->
+	<div class="title-div2"><span><a href="auction.php">&gt;&gt; 查看更多</a></span><h3>拍卖商品</h3></div>
+	<!--{foreach from=$auction_list item=auction}-->
+	<div class="goods-table">
+		<div class="goods-info">
+			<p><a href="{$auction.url}" title="{$auction.goods_name|escape:html}">{$auction.short_style_name|escape:html}</a></p>
+			<p class="goods-price">{$auction.formated_start_price}</p>
+		</div>
+		<a href="{$auction.url}"><img src="{$auction.thumb}" border="0" alt="{$auction.goods_name|escape:html}" class="thumb" /></a>
+	</div>
+	<!--{/foreach}-->
+	<div class="clear"></div>
+<!-- {/if} -->

@@ -1,0 +1,141 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="themes/ecmoban/qq/images/qq.css" rel="stylesheet" type="text/css" />
+<script language='javascript' src='themes/ecmoban/qq/ServiceQQ.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="block clearfix" style=" position:relative; height:59px; ">
+ <a href="../index.php" name="top"><img class="logo" src="../images/logo.gif" /></a>
+ 
+ <img class="tel" src="../images/tel.gif">
+ 
+ 
+ 
+ <div class="log">
+   <ul>  
+   
+   <li id="topNav" class="clearfix"> 
+   {insert_scripts files='transport.js,utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+   
+   <!--{if $navigator_list.top}-->
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+            <!-- {if !$smarty.foreach.nav_top_list.last} -->
+             |
+            <!-- {/if} -->
+    <!-- {/foreach} -->  
+    
+     <!-- {/if} -->
+ 
+   </li>
+    </ul>
+ </div>
+ 
+ 
+
+</div>
+
+    
+<div class="header_bg">
+<div class="block">
+
+  <a href="../index.php"{if $navigator_list.config.index eq 1} class="cur"{/if}>{$lang.home}</a>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+  <img src="../images/menu_line.gif">
+  
+  
+  
+  
+  
+  
+  
+  <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>{$nav.name}</a>
+ <!-- {/foreach} -->
+</div>
+</div>
+
+
+<div class="block ">
+<div class="meun_b ">
+ 
+
+
+
+
+
+	<script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+
+   <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}"/>
+   <input name="imageField" type="submit" value=" " class="go" style="cursor:pointer;background: url(../images/sousuo.gif) no-repeat; width:21px; height:21px; border:none; float:left; margin-right:5px; margin-left:5px;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+
+
+
+<div class="keys">
+    {if $searchkeywords}
+   {$lang.hot_search} ：
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+</div>
+
+
+
+{insert_scripts files='transport.js'}
+<div class="cart" id="ECS_CARTINFO">
+ {insert name='cart_info'} <a href="flow.php"><img style="vertical-align:middle;" src="../images/jiesuan.gif"></a>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="blank"></div>
+
+
+
+
+
+

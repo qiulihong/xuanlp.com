@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $group_buy_goods} -->
+	<div class="title-div2"><span><a href="group_buy.php">&gt;&gt; 查看更多</a></span><h3>团购商品</h3></div>
+	<!--{foreach from=$group_buy_goods item=goods}-->
+	<div class="goods-table">
+		<div class="goods-info">
+			<p><a href="{$goods.url}" title="{$goods.goods_name|escape:html}">{$goods.short_style_name|escape:html}</a></p>
+			<p class="goods-price">{$goods.last_price}</p>
+		</div>
+		<a href="{$goods.url}"><img src="{$goods.thumb}" border="0" alt="{$goods.goods_name|escape:html}" class="thumb" /></a>
+	</div>
+	<!--{/foreach}-->
+	<div class="clear"></div>
+<!-- {/if} -->

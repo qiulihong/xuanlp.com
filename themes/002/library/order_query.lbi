@@ -1,0 +1,40 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if empty($order_query)}-->
+<div class="title-div1"><h3>订单查询</h3></div>
+<script>var invalid_order_sn = "{$lang.invalid_order_sn}"</script>
+<div class="dark-div" style="text-align:center;">
+	<form name="ecsOrderQuery">
+		<input type="text" name="order_sn" class="shortinput" />
+		<input type="button" value="查询" onclick="orderQuery()" class="shortbtn" />
+	</form>
+</div>
+<div class="content-div" id="ECS_ORDER_QUERY">
+<!--{else}-->
+<div class="cart-div">
+	<ul class="invoice-list">
+		<li>
+			<p>{$lang.order_number}:<span><!--{if $order_query.user_id}--><a href="user.php?act=order_detail&order_id={$order_query.order_id}" >{$order_query.order_sn}</a><!--{else}-->{$order_query.order_sn}<!--{/if}--></span></p>
+			<p>{$lang.order_status}:<span>{$order_query.order_status}</span></p>
+		<!--{if $order_query.invoice_no }-->
+ 			<p>{$lang.consignment}:<span>{$order_query.invoice_no}</span></p>
+ 		<!--{/if}-->
+		<!--{if $order_query.shipping_date}-->
+ 			<p>{$lang.shipping_date}:<span>{$order_query.shipping_date}</span></p>
+		<!--{/if}-->
+		</li>
+	</ul>
+</div>
+<!--{/if}-->
+</div>
+<!--{if $invoice_list}-->
+<div class="cart-div">
+	<ul class="invoice-list">
+    	<!-- 发货单查询{foreach from=$invoice_list item=invoice} -->
+		<li>
+			<p>{$lang.order_number}:<span>{$invoice.order_sn}</span></p>
+			<p>{$lang.consignment}:<span>{$invoice.invoice_no}</span></p>
+		</li>
+   	<!-- 结束发货单查询{/foreach}-->
+	</ul>
+</div>
+<!-- {/if} -->

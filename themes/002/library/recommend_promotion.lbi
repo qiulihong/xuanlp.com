@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $promotion_goods} -->
+<div class="title-div2"><span><a href="../search.php?intro=promotion">&gt;&gt; 查看更多</a></span><h3>特价商品</h3></div>
+<!--{foreach from=$promotion_goods item=goods}-->
+<div class="goods-table1">
+	<a href="{$goods.url}" style="float:left;"><img src="{$goods.thumb}" border="0" alt="{$goods.name|escape:html}" class="thumb" /></a>
+	<div class="goods-info1">
+		<p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a></p>
+		<p class="goods-price1">{$goods.shop_price}</p>
+		<p class="goods-price">{$goods.promote_price}</p>
+	</div>
+</div>
+<!--{/foreach}-->
+<!-- {/if} -->

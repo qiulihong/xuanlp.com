@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<div class="container4">
+		<div class="title-div2"><h3>{$lang.message_board}</h3></div>
+	 <!--{foreach name=message_lists from=$msg_lists key=key item=msg}-->
+	 <table width="100%" border="1" cellspacing="1" cellpadding="4" style="margin-bottom:20px;" class="listtable">
+		            <tr style="background:#f9f9f9;">
+		              <td style="border-bottom:1px;background:url(images/msg_title.gif) no-repeat 2px 4px;padding-left:25px;">
+		                <h3 style="margin:0;color:#333;">{$msg.msg_type}:&nbsp;{$msg.user_name}&nbsp;&nbsp;{$msg.msg_title} <span style="color:#999;font:10px normol arial, helvetica, sans-serif;">{$msg.msg_time}</span></h3>
+										</td>
+		            </tr>
+		            <tr>
+		              <td valign="top" style="padding:5px 10px 10px 10px;">{$msg.msg_content}</td>
+		            </tr>
+		            <!-- {if $msg.re_msg_content} -->
+		            <tr>
+		              <td align="right">
+									<table width="100%" border="0" cellpadding="3" cellspacing="0">
+		                  <tr>
+		                    <td align="left" style="background:url(images/msg_reply.gif) no-repeat 2px 2px;padding:7px 0 3px 30px;border-bottom:1px dotted #ddd;"><h3>{$lang.shopman_reply}<span style="color:#999;font: normal 10px arial, helvetica, sans-serif;">{$msg.re_msg_time}</span></h3></td>
+		                  </tr>
+		                  <tr>
+		                    <td align="left" style="padding: 5px 10px 20px 10px;">{$msg.re_msg_content}</td>
+		                  </tr>
+		                </table></td>
+		            </tr>
+		            <!-- {/if} -->
+		          </table>
+	<!-- {/foreach} -->
+		
+	</div>

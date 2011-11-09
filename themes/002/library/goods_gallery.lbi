@@ -1,0 +1,70 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="goodsgallery">
+	<a style="float:left;"><img src="images/arrow_left.gif" alt="上一张" onmouseover=setspeed(9);setfangxiang(1) onmouseout=setspeed(1) /></a>
+	<span class="gthumb">
+		 <!--滚动图片开始-->
+							<div id=demo onmouseover=ii=1 style="OVERFLOW: hidden; width:260px; height:54px;" onmouseout=ii=0>
+                  <table cellSpacing=0 cellPadding=0 width=200 border=0>
+                      <tr>
+                        <td>
+												<div id=demo1>
+                          <table width="260" border="0">
+													<tr>
+														<td>
+														 <!-- {foreach from=$pictures item=picture}-->
+<a href="gallery.php?id={$id}&amp;img={$picture.img_id}" target="_blank"><img src="{$picture.thumb_url}" alt="{$goods.goods_name}" border="0" width="44" height="54"  /></a>
+</td>
+ <!--{/foreach}-->
+														</td>
+													</tr>
+												</table>
+                        </div>
+												</td>
+                        <td><div id=demo2></div></td>
+                      </tr>
+                  </table>
+              </div>
+							<!--滚动图片结束-->	
+	</span>
+	<a style="float:right;"><img src="images/arrow_right.gif" alt="下一张" onmouseover=setspeed(9);setfangxiang(2) onmouseout=setspeed(1) /></a>
+</div>
+<script>
+var ii=0;
+var speed=1;
+var fangxiang=1;
+
+var demo=document.getElementById('demo');
+var demo1=document.getElementById('demo1');
+var demo2=document.getElementById('demo2');
+
+demo2.innerHTML=demo1.innerHTML
+function andyzsy(){
+if (ii==1)return
+for(i=1;i<=speed;i++)
+
+{
+if(fangxiang=="2")
+{
+demo.scrollLeft--
+if(demo.scrollLeft=="0")
+demo.scrollLeft=demo1.offsetWidth
+}
+else
+{
+demo.scrollLeft++
+
+if(demo.scrollLeft>=demo1.offsetWidth)
+demo.scrollLeft=0
+}
+}
+}
+function setspeed(x)
+{
+speed=x;
+}
+function setfangxiang(x)
+{
+fangxiang=x;
+}
+setInterval(andyzsy,30)
+</script>

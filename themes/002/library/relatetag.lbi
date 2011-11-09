@@ -1,0 +1,21 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $tag_nums }
+<div class="commentlist" style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #ccc;">
+<!--{foreach from=$tag_list item=data key=key}-->
+{if $key neq $appid}
+{if $data.type eq "ecshop"}
+<div class="commentth">{$data.name}</div>
+		 <!--{foreach from=$data.data item=tag key=key}-->
+		<img src="{$tag.image}" /><br />
+		<a href="{$tag.url}">{$tag.goods_name}</a>
+		<!--{/foreach}--> 
+{elseif $data.type eq "discuz"}	
+<div class="commentth">{$data.name}</div>
+		<!--{foreach from=$data.data item=tag key=key}-->
+	  <a href="{$tag.url}">{$tag.subject}</a><br />
+	  <!--{/foreach}-->
+{/if}
+{/if}			
+<!--{/foreach}-->
+</div>
+{/if}		

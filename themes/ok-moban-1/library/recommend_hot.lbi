@@ -1,0 +1,9 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $hot_goods} -->
+
+  <!--{foreach from=$hot_goods item=goods}-->
+<DIV class=product_access_cp style="_margin-left: 9px"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  /></a>
+<P style=" height:20px; line-height:20px; overflow:hidden; margin-top:3px;"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></P>
+<P style=" height:20px; line-height:20px;"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--> </P></DIV>
+  <!--{/foreach}-->
+<!-- {/if} -->

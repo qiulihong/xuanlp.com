@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,global.js,compare.js'}
+</head>
+<body>
+<div id="globalWrapper">
+	<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+		<div id="page-header">
+			<div class="headerline"><p></p></div>
+			<div class="headerbody">
+				<p class="logo"><a href="../index.php" name="top"><img src="../images/logo.gif" alt="shopping mall name" width="130" height="56" border="0" /></a></p>
+				<p class="menu">
+					<span class="corgreyl"></span>
+					<span class="corgreyc">
+					<!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+						<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+						<!-- {if !$smarty.foreach.nav_top_list.last} -->|<!-- {/if} -->
+					<!-- {/foreach} -->
+					</span>
+					<span class="corgreyr"></span>
+				</p>
+			</div>
+		</div>
+		<div class="searchblock">
+			<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+				<select name="category" id="category">
+					<option value="0">{$lang.all_category}</option>
+					{$category_list}
+				</select>
+				<input name="keywords" class="textbox" type="text" id="keyword" value="{$search_keywords|escape}" />
+				<input type="submit" value="搜索" class="shortbtn" />
+				<input type="button" value="{$lang.advanced_search}" onclick="window.location.href='search.php?act=advanced_search'" class="longbtn" />
+			</form>
+		</div>
+		{if $searchkeywords}
+		<div style="padding:0 15px;text-align: right;">
+		{foreach from=$searchkeywords item=val}
+		 <a href="search.php?keywords={$val|escape}">{$val}</a>
+		{/foreach}
+		</div>
+		{/if}
+		<script type="text/javascript">
+		{literal}
+		<!--
+		function checkSearchForm()
+		{
+		    if(document.getElementById('keyword').value)
+		    {
+		        return true;
+		    }
+		    else
+		    {
+		        return false;
+		    }
+		}
+		-->
+		{/literal}
+		</script>
+		<div id="cell-nav">
+			<div class="ctrlwidthbox">
+				<ul>
+					<li><a href="../index.php">{$lang.home}</a><!-- {if $navigator_list.config.index eq 1} --><!-- {/if} --></li>
+					<!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+						<!-- {if $smarty.foreach.nav_middle_list.last}-->
+							<li style="border-right:0px;"><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+						<!-- {else} -->
+							<li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+						<!-- {/if} -->
+						<!-- {if $nav.active eq 1} -->
+						<!-- {/if} -->
+					<!-- {/foreach} -->
+				</ul>
+				<div class="navnote"><em>400-700-2121</em> 全国订购及咨询服务热线</div>
+			</div>
+		</div>
+		<div id="ECS_CATALOG" class="catalog-div" style="display:none"
+		onMouseOver="if (this.style.display != 'block') this.style.display='block';"
+		onMouseOut="if (this.style.display != 'none') this.style.display = 'none';">
+		  <ul>
+		    <!--{assign var="level" value=0}-->
+		    <!-- {foreach from=$catalog_list item=cat} -->
+		    <!-- {if $level > $cat.level} -->
+		  </ul>
+		  <!-- {/if}-->
+		  <!-- {if $level < $cat.level} -->
+		  <ul>
+		  <!-- {/if} -->
+		    <li class="{if $cat.level eq 0}top-cate{else}snd-cate{/if}"><a href="{$cat.url}" title="{if $cat.cat_desc neq ''}{$cat.cat_desc}{/if}">{$cat.cat_name}</a></li>
+		    <!--{assign var="level" value=$cat.level}-->
+		    <!-- {/foreach} -->
+		  </ul>
+		</div>
+	<!-- #EndLibraryItem -->
+	<!-- TemplateBeginEditable name="通栏广告位" -->
+	<!-- TemplateEndEditable -->
+	<div id="login"><!-- TemplateBeginEditable name="标语区左侧" -->
+		<!-- #BeginLibraryItem "/library/member.lbi" -->
+		{insert_scripts files='transport.js,utils.js'}
+		<div class="loginblock">
+			<div id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}</div>
+		</div>
+		 <!-- #EndLibraryItem -->
+	<!-- TemplateEndEditable --></div>
+	<div id="container">
+		<div id="page-left">
+			<!-- TemplateBeginEditable name="主区域左侧" -->
+			<!-- #BeginLibraryItem "/library/category_tree.lbi" -->
+				<script type="text/javascript">
+				function chg(id){
+					var str= "a"+id
+					var oa = document.getElementById(id);
+					var ob = document.getElementById(str);
+					if(oa){
+						if(oa.style.display == "block"){
+							oa.style.display = "none";
+							ob.innerHTML = "<em>+<\/em>";
+						}else{
+							oa.style.display = "block";
+							ob.innerHTML = "<em>-<\/em>";
+						}
+					}
+					return false;
+				}
+				</script>
+				<div class="title-div"><h3>商品分类</h3></div>
+				<div id="cat-div" style="padding:5px 10px;">
+				<ul>
+					<!--{foreach name=parent-cat from=$categories item=cat}-->
+					<li>
+						<div class="parent-cat"><a href="#" id="acat{$smarty.foreach.parent-cat.iteration}" onclick="return chg('cat{$smarty.foreach.parent-cat.iteration}');"><em><!--{if $cat.children}-->+<!--{else}-->-<!--{/if}--></em></a><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+						<!--{if $cat.children}-->
+							<div class="child-cat" id="cat{$smarty.foreach.parent-cat.iteration}" style="display:none;"><!--{foreach from=$cat.children item=child}-->
+								<a href="{$child.url}">{$child.name|escape:html}</a>
+							<!--{/foreach}--></div>
+						<!--{/if}-->
+					</li>
+					<!--{/foreach}-->
+				</ul>
+				</div>
+			<!-- #EndLibraryItem -->
+			<!-- #BeginLibraryItem "/library/top10.lbi" -->
+				<div class="title-div"><h3>销售排行</h3></div>
+				<div class="cart-div">
+					<ul class="top-list">
+						<!-- {foreach name=top_goods from=$top_goods item=goods}-->
+							<li><img src="../images/top_{$smarty.foreach.top_goods.iteration}.gif" width="11" height="11" alt="top" /> <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a></li>
+						<!--{/foreach}-->
+					</ul>
+				</div>
+			<!-- #EndLibraryItem -->
+			<!-- TemplateEndEditable -->
+		</div>
+		<!-- end #page-left -->
+		<div style="float:left;">
+			<!-- #beginlibraryitem "/library/ur_here.lbi" -->
+				<div class="urhere">{$lang.ur_here} {$ur_here}</div>
+			<!-- #endlibraryitem -->
+			<div class="container4">
+			  <div class="title-div2"><h3>{$lang.all_brand}</h3></div>
+			 <div class="clearfix">
+			  <!-- {foreach from=$brand_list name="brand_list_foreach" item=brand_data} -->
+				<div class="brandListBox">
+				<h4><span>{$brand_data.brand_name}</span>({$brand_data.goods_num})</h4>
+			<!-- {if $brand_data.brand_logo} -->
+			  <div class="brandLogo">
+        <a href="{$brand_data.url}"><img src="data/brandlogo/{$brand_data.brand_logo}" alt="{$brand_data.brand_name|escape:html} ({$brand_data.goods_num})" /></a>
+				</div>
+			<!-- {/if} -->
+			 <p title="{$brand_data.brand_desc}">{$brand_data.brand_desc}</p> 
+				</div>
+				<!-- {/foreach} -->
+			 </div>
+       
+			</div>
+			
+		</div>
+	</div>
+	<!-- #BeginLibraryItem "/library/help.lbi" -->
+		<!--{if $helps}-->
+		<div class="cart-div ctrlwidthbox1">
+			<table cellpadding="0" cellspacing="1" class="helpcat">
+				<tr>
+					<!-- {foreach from=$helps item=help_cat} -->
+					<td valign="top">{$help_cat.cat_name}
+						<ul>
+							<!-- {foreach from=$help_cat.article item=item} -->
+							<li><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></li>
+							<!-- {/foreach} -->
+						</ul>
+					</td>
+					<!-- {/foreach} -->
+				</tr>
+			</table>
+		</div>
+		<!--{/if}-->
+	<!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+		<div id="footer-table">
+			<div class="ctrlwidthbox">
+				<div class="footerlinks">
+				<!-- {if $navigator_list.bottom} -->
+					<!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+					<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a> 
+					<!-- {if !$smarty.foreach.nav_bottom_list.last} -->|<!-- {/if} -->
+					<!-- {/foreach} -->
+				<!-- {/if} -->
+				</div>
+				<div>{$copyright}</div>
+				<div>{$shop_address} {$shop_postcode}</div>
+				<div>
+					<!-- 客服电话{if $service_phone} -->
+				      Tel: {$service_phone}
+				      <!-- 结束客服电话{/if} -->
+				      <!-- QQ 号码 {foreach from=$qq item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束QQ号码 -->
+				      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!--{/foreach} 结束淘宝旺旺 -->
+				      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束Yahoo Messenger -->
+				      <!-- MSN Messenger {foreach from=$msn item=im} -->
+				      <!-- {if $im} -->
+				      <img src="../images/msn.gif" width="18" height="17" border="0" alt="MSN" /> {$im}
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束MSN Messenger -->
+				      <!-- Skype {foreach from=$skype item=im} -->
+				      <!-- {if $im} -->
+				      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} -->
+				</div>
+				<!-- ICP 证书{if $icp_number} -->
+				<p>{$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a></p>
+				<!-- 结束ICP 证书{/if} -->
+				<div>{insert name='query_info'}</div>
+				<div><a href="http://www.ecshop.com" target="_blank">Powered by <strong><span style="color:#c6005b">ECShop {$ecs_version}</span></strong></a></div>
+				{if $stats_code}
+				<div>{$stats_code}</div>
+				{/if}
+				<script type="text/javascript">
+				var process_request = "{$lang.process_request}";
+				</script>
+			</div>
+		</div>
+	<!-- #EndLibraryItem -->
+</div><!-- End #globalWrapper -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<dl class="cat">
+			<dt><div class="fl cattdiv"><a class="ct0" target="_blank" href="{$goods_cat.url}">{$goods_cat.name}</a></div>
+    <div class="fl catta"> 
+	 {if $goods_cat.cat_id}
+	    {foreach from=$goods_cat.cat_id item=rec_cat}
+	     <a href="{$rec_cat.url}">{$rec_cat.name}</a>
+	    {/foreach}
+	 {/if}
+       
+    </div>
+    <span class="fl"><a class="more" href="{$goods_cat.url}" target="_blank">{$lang.all_goods}</a></span>
+    <div class="clear"></div>
+	</dt>
+	<dd>
+		<!--div class="fl cat_left"> 
+		  <a href="http://www.quwan.com/category-784-sc1101-channel.html?fm=mainnav&amp;fm=living" title="精品生态羊毛被" target="_blank"><img original="http://i2.quwan.com/images/index/201110/2/syd(2).jpg" src="themes/default/images/grey.gif" height="420" width="185"></a> 
+		</div-->
+		<div class="f1">
+      <!--{foreach from=$cat_goods item=goods}-->
+			<ul class="cat_ul">
+        <li class="cat_img"> <a target="_blank" title="{$goods.name|escape:html}" href="{$goods.url}"><img original="{$goods.thumb}" alt="{$goods.name|escape:html}" src="{$goods.thumb}" height="140" width="140"></a> 
+           
+        </li>
+        <li><a target="_blank" title="{$goods.name|escape:html}" href="{$goods.url}">{$goods.short_name|escape:html}</a></li>
+        <li><span>{$goods.shop_price}</span></li>
+			</ul>
+      <!--{/foreach}-->
+		</div>
+	<span class="clear"></span>
+	</dd>
+</dl>

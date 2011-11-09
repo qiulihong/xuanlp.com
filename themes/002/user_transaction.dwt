@@ -1,0 +1,1316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js'}
+</head>
+<body>
+<div id="globalWrapper">
+	<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+		<div id="page-header">
+			<div class="headerline"><p></p></div>
+			<div class="headerbody">
+				<p class="logo"><a href="../index.php" name="top"><img src="../images/logo.gif" alt="shopping mall name" width="130" height="56" border="0" /></a></p>
+				<p class="menu">
+					<span class="corgreyl"></span>
+					<span class="corgreyc">
+					<!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+						<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+						<!-- {if !$smarty.foreach.nav_top_list.last} -->|<!-- {/if} -->
+					<!-- {/foreach} -->
+					</span>
+					<span class="corgreyr"></span>
+				</p>
+			</div>
+		</div>
+		<div class="searchblock">
+			<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+				<select name="category" id="category">
+					<option value="0">{$lang.all_category}</option>
+					{$category_list}
+				</select>
+				<input name="keywords" class="textbox" type="text" id="keyword" value="{$search_keywords|escape}" />
+				<input type="submit" value="搜索" class="shortbtn" />
+				<input type="button" value="{$lang.advanced_search}" onclick="window.location.href='search.php?act=advanced_search'" class="longbtn" />
+			</form>
+		</div>
+		{if $searchkeywords}
+		<div style="padding:0 15px;text-align: right;">
+		{foreach from=$searchkeywords item=val}
+		 <a href="search.php?keywords={$val|escape}">{$val}</a>
+		{/foreach}
+		</div>
+		{/if}
+		<script type="text/javascript">
+		{literal}
+		<!--
+		function checkSearchForm()
+		{
+		    if(document.getElementById('keyword').value)
+		    {
+		        return true;
+		    }
+		    else
+		    {
+		        return false;
+		    }
+		}
+		-->
+		{/literal}
+		</script>
+		<div id="cell-nav">
+			<div class="ctrlwidthbox">
+				<ul>
+					<li><a href="../index.php">{$lang.home}</a><!-- {if $navigator_list.config.index eq 1} --><!-- {/if} --></li>
+					<!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+						<!-- {if $smarty.foreach.nav_middle_list.last}-->
+							<li style="border-right:0px;"><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+						<!-- {else} -->
+							<li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+						<!-- {/if} -->
+						<!-- {if $nav.active eq 1} -->
+						<!-- {/if} -->
+					<!-- {/foreach} -->
+				</ul>
+				<div class="navnote"><em>400-700-2121</em> 全国订购及咨询服务热线</div>
+			</div>
+		</div>
+		<div id="ECS_CATALOG" class="catalog-div" style="display:none"
+		onMouseOver="if (this.style.display != 'block') this.style.display='block';"
+		onMouseOut="if (this.style.display != 'none') this.style.display = 'none';">
+		  <ul>
+		    <!--{assign var="level" value=0}-->
+		    <!-- {foreach from=$catalog_list item=cat} -->
+		    <!-- {if $level > $cat.level} -->
+		  </ul>
+		  <!-- {/if}-->
+		  <!-- {if $level < $cat.level} -->
+		  <ul>
+		  <!-- {/if} -->
+		    <li class="{if $cat.level eq 0}top-cate{else}snd-cate{/if}"><a href="{$cat.url}" title="{if $cat.cat_desc neq ''}{$cat.cat_desc}{/if}">{$cat.cat_name}</a></li>
+		    <!--{assign var="level" value=$cat.level}-->
+		    <!-- {/foreach} -->
+		  </ul>
+		</div>
+	<!-- #EndLibraryItem -->
+	<!-- templatebegineditable name="通栏广告位" -->
+	<!-- templateendeditable -->
+	<div id="login"><!-- templatebegineditable name="标语区左侧" -->
+		<!-- #beginlibraryitem "/library/member.lbi" -->
+		{insert_scripts files='transport.js,utils.js'}
+		<div class="loginblock">
+			<div id="ecs_memberzone">{* ecshop 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}</div>
+		</div>
+		 <!-- #endlibraryitem -->
+	<!-- templateendeditable --></div>
+	<div id="container">
+		<div id="page-left">
+			<!-- templatebegineditable name="主区域左侧" -->
+			<!-- #beginlibraryitem "/library/user_menu.lbi" -->
+				<div class="title-div"><h3>用户中心</h3></div>
+				<div class="cart-div">
+					<ul class="article-list1">
+						<li><a href="user.php">{$lang.label_welcome}</a></li>
+						<li><a href="user.php?act=profile">{$lang.label_profile}</a></li>
+						<li><a href="user.php?act=order_list">{$lang.label_order}</a></li>
+						<li><a href="user.php?act=address_list">{$lang.label_address}</a></li>
+						<li><a href="user.php?act=collection_list">{$lang.label_collection}</a></li>
+						<li><a href="user.php?act=message_list">{$lang.label_message}</a></li>
+						<li><a href="user.php?act=tag_list">{$lang.label_tag}</a></li>
+						<li><a href="user.php?act=booking_list">{$lang.label_booking}</a></li>
+						<li><a href="user.php?act=bonus">{$lang.label_bonus}</a></li>
+						<!-- {if $affiliate.on eq 1} --><li><a href="user.php?act=affiliate">{$lang.label_affiliate}</a></li><!-- {/if} -->
+						<li><a href="user.php?act=comment_list">{$lang.label_comment}</a></li>
+						<!--<li><a href="user.php?act=group_buy">{$lang.label_group_buy}</a></li>-->
+						<li><a href="user.php?act=track_packages">{$lang.label_track_packages}</a></li>
+						<li><a href="user.php?act=account_log">{$lang.label_user_surplus}</a></li>
+						<!--{if $show_transform_points}-->
+						<li><a href="user.php?act=transform_points">{$lang.label_transform_points}</a></li>
+						<!--{/if}-->
+						<li><a href="user.php?act=logout">{$lang.label_logout}</a></li>
+					</ul>
+				</div>
+			<!-- #endlibraryitem -->
+			<!-- templateendeditable -->
+		</div>
+		<!-- end #page-left -->
+		<div style="float:left;">
+			<!-- #beginlibraryitem "/library/ur_here.lbi" -->
+				<div class="urhere">{$lang.ur_here} {$ur_here}</div>
+			<!-- #endlibraryitem -->
+		</div>
+ 		<div style="float:left;">
+			<!-- 用户信息界面 -->
+				<!--{if $action eq 'profile'}-->
+					{insert_scripts files='utils.js'}
+				      <script type="text/javascript">
+				        {foreach from=$lang.profile_js item=item key=key}
+				          var {$key} = "{$item}";
+				        {/foreach}
+				      </script>
+					<div class="title-div2 marginleft"><h3>个人资料</h3></div>
+					<div class="container4">
+				       <form name="formedit" action="user.php" method="post" onsubmit="return useredit()">
+				          <table width="100%" border="0" cellpadding="4" cellspacing="1">
+				            <tr>
+				              <td width="25%" align="right"><strong>{$lang.birthday} </strong></td>
+				              <td> {html_select_date field_order=ymd prefix=birthday start_year=-60 end_year=+1 display_days=true month_format=%m day_value_format=%02d time=$profile.birthday} </td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.sex} </strong></td>
+				              <td><input type="radio" name="sex" value="0" {if $profile.sex==0}checked="checked"{/if} />
+				                {$lang.secrecy}&nbsp;&nbsp;
+				                <input type="radio" name="sex" value="1" {if $profile.sex==1}checked="checked"{/if} />
+				                {$lang.male}&nbsp;&nbsp;
+				                <input type="radio" name="sex" value="2" {if $profile.sex==2}checked="checked"{/if} />
+				                {$lang.female}&nbsp;&nbsp; </td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.email} </strong></td>
+				              <td><input name="email" type="text" value="{$profile.email}" size="25" /></td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.other_msn}</strong></td>
+				              <td><input name="other[msn]" type="text" value="{$profile.msn}" size="25" />
+				               </td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.other_qq}</strong></td>
+				              <td><input name="other[qq]" type="text" value="{$profile.qq}" size="25" />
+				               </td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.other_office_phone}</strong></td>
+				              <td><input name="other[office_phone]" type="text" value="{$profile.office_phone}" size="25" />
+				               </td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.other_home_phone}</strong></td>
+				              <td><input name="other[home_phone]" type="text" value="{$profile.home_phone}" size="25" />
+				              </td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.other_mobile_phone}</strong></td>
+				              <td><input name="other[mobile_phone]" type="text" value="{$profile.mobile_phone}" size="25" />
+				               </td>
+				            </tr>
+				            <tr>
+				              <td>&nbsp;</td>
+				              <td><input name="act" type="hidden" value="act_edit_profile" />
+				                <input name="submit" type="submit" value="{$lang.confirm_edit}" class="longbtn" />
+				              </td>
+				            </tr>
+				          </table>
+				        </form>
+				        <form name="formpassword" action="user.php" method="post" onsubmit="return editpassword()">
+				          <table width="100%" border="0" cellpadding="4" cellspacing="1" class="listtable1">
+				            <tr>
+				              <td width="25%" align="right" class="listtd1"><strong>{$lang.old_password}</strong></td>
+				              <td class="listtd1"><input name="old_password" type="password" size="25" /></td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.new_password}</strong></td>
+				              <td><input name="new_password" type="password" size="25" /></td>
+				            </tr>
+				            <tr>
+				              <td align="right"><strong>{$lang.confirm_password}</strong></td>
+				              <td><input name="comfirm_password" type="password" size="25" /></td>
+				            </tr>
+				            <tr>
+				              <td>&nbsp;</td>
+				              <td><input name="act" type="hidden" value="act_edit_password" />
+				                <input name="submit" type="submit" value="{$lang.confirm_edit}" class="longbtn" />
+				              </td>
+				            </tr>
+				          </table>
+				        </form>
+					</div>
+				<!--{/if}-->
+			<!--#用户信息界面-->
+			<!-- {if $action eq 'bonus'} 用户的红包列表-->
+		          <script type="text/javascript">
+		            {foreach from=$lang.profile_js item=item key=key}
+		              var {$key} = "{$item}";
+		            {/foreach}
+		          </script>
+				<div class="container4">
+					<div class="title-div2"><h3>我的红包</h3></div>
+					<table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+					              <tr>
+					                <th>{$lang.bonus_sn}</th>
+					                <th>{$lang.bonus_name}</th>
+					                <th>{$lang.bonus_amount}</th>
+					                <th>{$lang.min_goods_amount}</th>
+					                <th>{$lang.bonus_end_date}</th>
+					                <th>{$lang.bonus_status}</th>
+					              </tr>
+					              <!-- {if $bonus} -->
+					              <!--{foreach from=$bonus item=item}-->
+					              <tr>
+					                <td>{$item.bonus_sn}</td>
+					                <td>{$item.type_name}</td>
+					                <td>{$item.type_money}</td>
+					                <td>{$item.min_goods_amount}</td>
+					                <td>{$item.use_enddate}</td>
+					                <td>{$item.status}</td>
+					              </tr>
+					              <!--{/foreach}-->
+					              <!-- {else} -->
+					              <tr>
+					                <td colspan="6">{$lang.user_bonus_empty}</td>
+					              </tr>
+					              <!-- {/if} -->
+					</table>
+					<!-- #beginlibraryitem "/library/pages.lbi" -->
+					<form action="{$smarty.server.php_self}" method="get" name="selectpageform" id="selectpageform">
+					  <div id="pager"> {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+					    <!--{foreach from=$pager.search key=key item=item}-->
+					    <input type="hidden" name="{$key}" value="{$item}" />
+					    <!--{/foreach}-->
+					    <select name="page" id="page" onchange="selectpage(this)">
+					    {html_options options=$pager.array selected=$pager.page}
+					    </select>
+					  </div>
+					</form>
+					<script type="text/javascript" language="javascript">
+					<!--
+					{literal}
+					function selectpage(sel)
+					{
+					  sel.form.submit();
+					}
+					{/literal}
+					//-->
+					</script>
+					<!-- #endlibraryitem -->
+				<form name="addbouns" action="user.php" method="post" onsubmit="return addbonus()">
+				<div class="title-div2"><h3>添加红包</h3></div>
+					<strong>{$lang.bonus_number}</strong>
+				  <input name="bonus_sn" type="text" size="30" />
+				  <input type="hidden" name="act" value="act_add_bonus" />
+				  <input type="submit" value="{$lang.add_user_bonus}" />
+				</div>
+				</form>
+			<!-- {/if} -->
+			<!--#订单列表界面-->
+				<!-- {if $action eq 'order_list'} -->
+					<div class="container4">
+						<div class="title-div2"><h3>我的订单</h3></div>
+						<table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+						  <tr align="center">
+						    <th>{$lang.order_number}</th>
+						    <th>{$lang.order_addtime}</th>
+						    <th>{$lang.order_money}</th>
+						    <th>{$lang.order_status}</th>
+						    <th>{$lang.handle}</th>
+						  </tr>
+						  <!--{foreach from=$orders item=item}-->
+						  <tr>
+						    <td align="center"><a href="user.php?act=order_detail&order_id={$item.order_id}">{$item.order_sn}</a></td>
+						    <td align="center">{$item.order_time}</td>
+						    <td align="right">{$item.total_fee}</td>
+						    <td align="center">{$item.order_status}</td>
+						    <td align="center">{$item.handler}</td>
+						  </tr>
+						  <!--{/foreach}-->
+						</table>
+				            <!-- #beginlibraryitem "/library/pages.lbi" -->
+							<form action="{$smarty.server.php_self}" method="get" name="selectpageform" id="selectpageform">
+							  <div id="pager"> {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+							    <!--{foreach from=$pager.search key=key item=item}-->
+							    <input type="hidden" name="{$key}" value="{$item}" />
+							    <!--{/foreach}-->
+							    <select name="page" id="page" onchange="selectpage(this)">
+							    {html_options options=$pager.array selected=$pager.page}
+							    </select>
+							  </div>
+							</form>
+							<script type="text/javascript" language="javascript">
+							<!--
+							{literal}
+							function selectpage(sel)
+							{
+							  sel.form.submit();
+							}
+							{/literal}
+							//-->
+							</script>
+						<!-- #endlibraryitem -->
+						<div class="title-div2"><h3>合并订单</h3></div>
+						<script type="text/javascript">
+							{foreach from=$lang.merge_order_js item=item key=key}
+							  var {$key} = "{$item}";
+							{/foreach}
+						</script>
+						<form action="user.php" method="post" name="formorder" onsubmit="return mergeorder()">
+						  <table width="100%" border="1" cellspacing="1" cellpadding="8" class="listtable">
+						    <tr>
+						      <td>{$lang.first_order}: <select name="to_order">
+						          <option value="0">{$lang.select}</option>
+
+						          {html_options options=$merge}
+
+						        </select></td>
+						      <td>{$lang.second_order}: <select name="from_order">
+						          <option value="0">{$lang.select}</option>
+
+						          {html_options options=$merge}
+
+						        </select></td>
+						      <td><input name="act" value="merge_order" type="hidden" />
+						        <input type="submit" name="submit" value="{$lang.merge_order}" class="longbtn" /></td>
+						    </tr>
+						    <tr>
+						      <td colspan="3">{$lang.merge_order_notice}</td>
+						    </tr>
+						  </table>
+						</form>
+					</div>
+				<!--{/if}-->
+			<!--#订单列表界面 -->
+			<!--#包裹状态查询界面-->
+				<!-- {if $action eq 'track_packages'} -->
+					<div class="container4" >
+						<div class="title-div2"><h3>跟踪包裹</h3></div>
+						<table id="order_table" width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+						  <tr align="center">
+						    <th>{$lang.order_number}</th>
+						    <th>{$lang.handle}</th>
+						  </tr>
+						  <!--{foreach from=$orders item=item}-->
+						  <tr>
+						    <td align="center"><a href="user.php?act=order_detail&order_id={$item.order_id}">{$item.order_sn}</a></td>
+						    <td align="center">{$item.query_link}</td>
+						  </tr>
+						  <!--{/foreach}-->
+						</table>
+						<script>
+						var query_status = '{$lang.query_status}';
+						var ot = document.getelementbyid('order_table');
+						for (var i = 1; i < ot.rows.length; i++)
+						{
+						  var row = ot.rows[i];
+						  var cel = row.cells[1];
+						  cel.getelementsbytagname('a').item(0).innerhtml = query_status;
+						}
+						</script>
+						<!-- #beginlibraryitem "/library/pages.lbi" -->
+							<form action="{$smarty.server.php_self}" method="get" name="selectpageform" id="selectpageform">
+							  <div id="pager"> {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+							    <!--{foreach from=$pager.search key=key item=item}-->
+							    <input type="hidden" name="{$key}" value="{$item}" />
+							    <!--{/foreach}-->
+							    <select name="page" id="page" onchange="selectpage(this)">
+							    {html_options options=$pager.array selected=$pager.page}
+							    </select>
+							  </div>
+							</form>
+							<script type="text/javascript" language="javascript">
+							<!--
+							{literal}
+							function selectpage(sel)
+							{
+							  sel.form.submit();
+							}
+							{/literal}
+							//-->
+							</script>
+						<!-- #endlibraryitem -->
+					</div>
+				<!--{/if}-->
+			<!--#包裹状态查询界面 -->
+			<!--*订单详情页面 -->
+				<!--{if $action eq order_detail} -->
+					<div class="container4">
+				          {insert_scripts files='transport.js'}
+				          <div class="title-div2"><h3>订单状态</h3></div>
+				          <table width="100%" border="1" cellpadding="4" cellspacing="1" class="listtable">
+				            <tr>
+				              <th align="left">{$lang.detail_order_sn}</th>
+				              <td>{$order.order_sn}
+				              <!-- {if $order.extension_code eq "group_buy"} --><a href="./group_buy.php?act=view&id={$order.extension_id}"><strong>{$lang.order_is_group_buy}</strong></a><!--{/if}-->  <a href="user.php?act=message_list&order_id={$order.order_id}">[{$lang.business_message}]</a></td>
+				            </tr>
+				            <tr>
+				              <th align="left">{$lang.detail_order_status}</th>
+				              <td>{$order.order_status}&nbsp;&nbsp;&nbsp;&nbsp;<samp>{$order.confirm_time}</samp></td>
+				            </tr>
+				            <tr>
+				              <th align="left">{$lang.detail_pay_status}</th>
+				              <td><span style="float:left;">{$order.pay_status}&nbsp;&nbsp;&nbsp;&nbsp;</span>{if $order.order_amount gt 0}{$order.pay_online}{/if}<samp>{$order.pay_time}</samp></td>
+				            </tr>
+				            <tr>
+				              <th align="left">{$lang.detail_shipping_status}</th>
+				              <td>{$order.shipping_status}&nbsp;&nbsp;&nbsp;&nbsp;<samp>{$order.shipping_time}</samp></td>
+				            </tr>
+				            <!-- {if $order.invoice_no}-->
+				            <tr>
+				              <th align="left">{$lang.consignment}</th>
+				              <td>{$order.invoice_no}</td>
+				            </tr>
+				            <!--{/if}-->
+				            <!--{if $order.to_buyer}-->
+				            <tr>
+				              <th align="left">{$lang.detail_to_buyer}</th>
+				              <td>{$order.to_buyer}</td>
+				            </tr>
+				            <!-- {/if} -->
+										<!--{if $virtual_card}虚拟卡信息-->
+            <tr>
+              <th align="left">{$lang.virtual_card_info}</th>
+              <td>
+              <!--{foreach from=$virtual_card item=vgoods}-->
+                <!--{foreach from=$vgoods.info item=card}-->
+                  <!--{if $card.card_sn}-->{$lang.card_sn}:<span style="color:red;">{$card.card_sn}</span><!--{/if}-->
+                  <!--{if $card.card_password}-->{$lang.card_password}:<span style="color:red;">{$card.card_password}</span><!--{/if}-->
+                  <!--{if $card.end_date}-->{$lang.end_date}:{$card.end_date}<!--{/if}-->
+                <!--{/foreach}-->
+              <!--{/foreach}-->
+              </td>
+            </tr>
+             <!--{/if}-->
+				          </table>
+				          <div class="title-div2"><!-- {if $allow_to_cart} --><span><a href="javascript:;" onclick="returntocart({$order.order_id})">{$lang.return_to_cart} &gt;&gt;</a></span><!-- {/if} --><h3>商品列表</h3></div>
+				          <div class="content-div">
+				            <table width="100%" border="1" align="center" cellpadding="4" cellspacing="1" class="listtable">
+				              <tr>
+				                <th>{$lang.goods_name}</th>
+				                <th>{$lang.goods_attr}</th>
+				                <!--<th>{$lang.market_price}</th>-->
+				                <th>{$lang.goods_price}<!-- {if $order.extension_code eq "group_buy"} -->{$lang.gb_deposit}<!-- {/if} --></th>
+				                <th>{$lang.amount}</th>
+				                <th>{$lang.subtotal}</th>
+				              </tr>
+				              <!-- {foreach from=$goods_list item=goods} -->
+				              <tr>
+				                <td><a href="goods.php?id={$goods.goods_id}" target="_blank">{$goods.goods_name}</a>
+				                  <!-- {if $goods.parent_id > 0} -->
+				                  <span style="color:#ff0000">（{$lang.accessories}）</span>
+				                  <!-- {elseif $goods.is_gift} -->
+				                  <span style="color:#ff0000">（{$lang.largess}）</span>
+				                  <!-- {/if} --></td>
+				                <td align="left">{$goods.goods_attr|nl2br}</td>
+				                <!--<td align="right">{$goods.market_price}</td>-->
+				                <td align="right">{$goods.goods_price}</td>
+				                <td align="right">{$goods.goods_number}</td>
+				                <td align="right">{$goods.subtotal}</td>
+				              </tr>
+				              <!-- {/foreach} -->
+				              <tr>
+				                <td colspan="8" style="border-top:1px dotted #dadada;text-align:right;">{$lang.shopping_money}<!-- {if $order.extension_code eq "group_buy"} -->{$lang.gb_deposit}<!-- {/if} -->: {$order.formated_goods_amount}</td>
+				              </tr>
+				            </table>
+				          </div>
+				          <div class="title-div2"><h3>费用总计</h3></div>
+				          <table width="100%" border="1" align="center" cellpadding="4" cellspacing="2" class="listtable">
+				            <tr>
+				              <td align="right">
+				                  {$lang.goods_all_price}<!-- {if $order.extension_code eq "group_buy"} -->{$lang.gb_deposit}<!-- {/if} -->: {$order.formated_goods_amount}
+				                <!-- {if $order.discount gt 0} 折扣 -->
+				                - {$lang.discount}: {$order.formated_discount}
+				                <!-- {/if} -->
+				                <!-- {if $order.tax gt 0} -->
+				                + {$lang.tax}: {$order.formated_tax}
+				                <!-- {/if} -->
+				                <!-- {if $order.shipping_fee > 0} -->
+				                + {$lang.shipping_fee}: {$order.formated_shipping_fee}
+				                <!-- {/if} -->
+				                <!-- {if $order.insure_fee > 0} -->
+				                + {$lang.insure_fee}: {$order.formated_insure_fee}
+				                <!-- {/if} -->
+				                <!-- {if $order.pay_fee > 0} -->
+				                + {$lang.pay_fee}: {$order.formated_pay_fee}
+				                <!-- {/if} -->
+				                <!-- {if $order.pack_fee > 0} -->
+				                + {$lang.pack_fee}: {$order.formated_pack_fee}
+				                <!-- {/if} -->
+				                <!-- {if $order.card_fee > 0} -->
+				                + {$lang.card_fee}: {$order.formated_card_fee}
+				                <!-- {/if} -->
+				              </td>
+				            </tr>
+				            <tr>
+				              <td align="right">
+				                <!-- {if $order.money_paid > 0} -->
+				                - {$lang.order_money_paid}: {$order.formated_money_paid}
+				                <!-- {/if} -->
+				                <!-- {if $order.surplus > 0} -->
+				                - {$lang.use_surplus}: {$order.formated_surplus}
+				                <!-- {/if} -->
+				                <!-- {if $order.integral_money > 0} -->
+				                - {$lang.use_integral}: {$order.formated_integral_money}
+				                <!-- {/if} -->
+				                <!-- {if $order.bonus > 0} -->
+				                - {$lang.use_bonus}: {$order.formated_bonus}
+				                <!-- {/if} -->
+				              </td>
+				            </tr>
+				            <tr>
+				              <td align="right">{$lang.order_amount}: {$order.formated_order_amount}
+				              <!-- {if $order.extension_code eq "group_buy"} --><br />{$lang.notice_gb_order_amount}<!-- {/if} --></td>
+				            </tr>
+				              <!-- {if $allow_edit_surplus} 如果可以编辑使用余额数 -->
+				            <tr>
+				              <td align="right" style="border-top: 1px dotted #dadada">
+				        <form action="user.php" method="post" name="formfee" id="formfee">{$lang.use_more_surplus}:
+				              <input name="surplus" type="text" size="8" value="0" />{$max_surplus}
+				              <input type="submit" name="submit" value="{$lang.button_submit}" />
+				        <input type="hidden" name="act" value="act_edit_surplus" />
+				        <input type="hidden" name="order_id" value="{$smarty.get.order_id}" />
+				        </form></td>
+				            </tr>
+				      {/if}
+				          </table>
+				          <div class="title-div2"><h3>收货人信息</h3></div>
+				            <!-- {if $order.allow_update_address gt 0} -->
+				            <form action="user.php" method="post" name="formaddress" id="formaddress">
+				              <table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+				                <tr>
+				                  <td width="15%">{$lang.consignee_name}: </td>
+				                  <td width="35%"><input name="consignee" type="text" value="{$order.consignee|escape}" size="25">
+				                  </td>
+				                  <td width="15%">{$lang.email_address}: </td>
+				                  <td width="35%"><input name="email" type="text" value="{$order.email|escape}" size="25" />
+				                  </td>
+				                </tr>
+				                <!-- {if $order.exist_real_goods} -->
+				                <!-- 只有虚拟商品处理-->
+				                <tr>
+				                  <td>{$lang.detailed_address}: </td>
+				                  <td><input name="address" type="text" value="{$order.address|escape} " size="25" /></td>
+				                  <td>{$lang.postalcode}:</td>
+				                  <td><input name="zipcode" type="text" value="{$order.zipcode|escape}" size="25" /></td>
+				                </tr>
+				                <!--{/if}-->
+				                <tr>
+				                  <td>{$lang.phone}:</td>
+				                  <td><input name="tel" type="text" value="{$order.tel|escape}" size="25" /></td>
+				                  <td>{$lang.backup_phone}:</td>
+				                  <td><input name="mobile" type="text" value="{$order.mobile|escape}" size="25" /></td>
+				                </tr>
+				                <!-- {if $order.exist_real_goods} -->
+				                <!-- 只有虚拟商品处理-->
+				                <tr>
+				                  <td>{$lang.sign_building}:</td>
+				                  <td><input name="sign_building" type="text" value="{$order.sign_building|escape}" size="25" />
+				                  </td>
+				                  <td>{$lang.deliver_goods_time}:</td>
+				                  <td><input name="best_time" type="text" value="{$order.best_time|escape}" size="25" />
+				                  </td>
+				                </tr>
+				                <!-- {/if}-->
+				                <tr>
+				                  <td colspan="4" align="center"><input type="hidden" name="act" value="save_order_address" />
+				                    <input type="hidden" name="order_id" value="{$order.order_id}" />
+				                    <input type="submit" value="{$lang.update_address}" style="margin-top:20px;" />
+				                  </td>
+				                </tr>
+				              </table>
+				            </form>
+				            <!-- {else} -->
+				            <table width="100%" border="1" align="center" cellspacing="1" cellpadding="4" class="listtable">
+				              <tr>
+				                <td width="15%" >{$lang.consignee_name}:</td>
+				                <td width="35%">{$order.consignee}</td>
+				                <td width="15%" >{$lang.email_address}:</td>
+				                <td width="35%">{$order.email}</td>
+				              </tr>
+				              <!-- {if $order.exist_real_goods} -->
+				              <tr>
+				                <td>{$lang.detailed_address}:</td>
+				                <td colspan="3">{$order.address}
+				                  <!-- {if $order.zipcode} -->
+				                  [{$lang.postalcode}: {$order.zipcode}]
+				                  <!-- {/if} --></td>
+				              </tr>
+				              <!-- {/if}-->
+				              <tr>
+				                <td >{$lang.phone}:</td>
+				                <td>{$order.tel} </td>
+				                <td >{$lang.backup_phone}:</td>
+				                <td>{$order.mobile}</td>
+				              </tr>
+				              <!-- {if $order.exist_real_goods} -->
+				              <tr>
+				                <td >{$lang.sign_building}:</td>
+				                <td>{$order.sign_building} </td>
+				                <td >{$lang.deliver_goods_time}:</td>
+				                <td>{$order.best_time}</td>
+				              </tr>
+				              <!--{/if}-->
+				            </table>
+				            <!-- {/if} -->
+				          <div class="title-div2"><h3>支付方式</h3></div>
+				          <div class="listtable">
+				          <p style="margin:10px;">{$lang.select_payment}: <strong>{$order.pay_name}</strong>。{$lang.order_amount}: <strong>{$order.formated_order_amount}</strong></p>
+				          <p style="margin:10px;">{$order.pay_desc}</p>
+				          <!--{if $payment_list}-->
+				          <div style="padding:10px; border-top:1px dotted #dadada; text-align:right;">
+				          <form name="payment" method="post" action="user.php">
+				          {$lang.change_payment}:
+				          <select name="pay_id">
+				            <!--{foreach from=$payment_list item=payment}-->
+				            <option value="{$payment.pay_id}">
+				            {$payment.pay_name}({$lang.pay_fee}:{$payment.format_pay_fee})
+				            </option>
+				            <!--{/foreach}-->
+				          </select>
+				          <input type="hidden" name="act" value="act_edit_payment" />
+				          <input type="hidden" name="order_id" value="{$order.order_id}" />
+				          <input type="submit" name="submit" value="{$lang.button_submit}" />
+				          </form>
+				          </div>
+				          <!--{/if}-->
+				          </div>
+				          <div class="title-div2"><h3>其他信息</h3></div>
+				            <table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+				              <!-- {if $order.shipping_id > 0} -->
+				              <tr>
+				                <td width="15%">{$lang.shipping}:</td>
+				                <td colspan="3">{$order.shipping_name}</td>
+				              </tr>
+				              <!-- {/if} -->
+				              <tr>
+				                <td>{$lang.payment}:</td>
+				                <td colspan="3">{$order.pay_name}</td>
+				              </tr>
+				              <!--{if $order.insure_fee > 0}-->
+				              <!--{/if}-->
+				              <!-- {if $order.pack_name} 是否使用包装 -->
+				              <tr>
+				                <td>{$lang.use_pack}:</td>
+				                <td>{$order.pack_name}</td>
+				                <td align="right">&nbsp;</td>
+				                <td>&nbsp;</td>
+				              </tr>
+				              <!-- {/if} 是否使用包装 -->
+				              <!-- {if $order.card_name} 是否使用贺卡 -->
+				              <tr>
+				                <td>{$lang.use_card}:</td>
+				                <td>{$order.card_name}</td>
+				                <td align="right">&nbsp;</td>
+				                <td>&nbsp;</td>
+				              </tr>
+				              <!-- {/if} -->
+				              <!-- {if $order.card_message} 是否使用贺卡 -->
+				              <tr>
+				                <td>{$lang.bless_note}:</td>
+				                <td colspan="3">{$order.card_message}</td>
+				              </tr>
+				              <!-- {/if} 是否使用贺卡 -->
+				              <!-- {if $order.surplus > 0} 是否使用余额 -->
+				              <!-- {/if} -->
+				              <!-- {if $order.integral > 0} 是否使用积分 -->
+				              <tr>
+				                <td>{$lang.use_integral}:</td>
+				                <td colspan="3">{$order.integral}</td>
+				              </tr>
+				              <!-- {/if} 是否使用积分 -->
+				              <!-- {if $order.bonus > 0} 是否使用红包 -->
+				              <!-- {/if} -->
+				              <!-- {if $order.inv_payee && $order.inv_content} 是否开发票 -->
+				              <tr>
+				                <td>{$lang.invoice_title}:</td>
+				                <td>{$order.inv_payee}</td>
+				                <td>{$lang.invoice_content}:</td>
+				                <td>{$order.inv_content}</td>
+				              </tr>
+				              <!-- {/if} -->
+				              <!-- {if $order.postscript} 是否有订单附言 -->
+				              <tr>
+				                <td>{$lang.order_postscript}:</td>
+				                <td colspan="3">{$order.postscript}</td>
+				              </tr>
+				              <!-- {/if} -->
+				              <tr>
+				                <td>{$lang.booking_process}:</td>
+				                <td colspan="3">{$order.how_oos_name}</td>
+				              </tr>
+				             
+				            </table>
+					</div>
+				<!--{/if} -->
+			<!--#订单详情页 -->
+			<!--{if $action eq "account_raply" || $action eq "account_log" || $action eq "account_deposit" || $action eq "account_detail"} -->
+				<div class="container4">
+			         <script type="text/javascript">
+			            {foreach from=$lang.account_js item=item key=key}
+			              var {$key} = "{$item}";
+			            {/foreach}
+			          </script>
+			          <div class="title-div2"><span><a href="user.php?act=account_deposit">{$lang.surplus_type_0}</a> | <a href="user.php?act=account_raply">{$lang.surplus_type_1}</a> | <a href="user.php?act=account_detail">{$lang.add_surplus_log}</a> | <a href="user.php?act=account_log">{$lang.view_application}</a></span><h3>账户明细</h3></div>
+			          <!-- {/if} -->
+			          <!-- {if $action eq "account_raply"} -->
+			          <form name="formsurplus" method="post" action="user.php" onsubmit="return submitsurplus()">
+			            <table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+			              <tr>
+			                <th width="15%">{$lang.repay_money}:</th>
+			                <td><input type="text" name="amount" value="{$order.amount|escape}" size="30" />
+			                </td>
+			              </tr>
+			              <tr>
+			                <th valign="top" rowspan="2">{$lang.process_notic}:</th>
+			                <td><textarea name="user_note" cols="55" rows="6">{$order.user_note|escape}</textarea></td>
+			              </tr>
+			              <tr>
+			                <td><input type="hidden" name="surplus_type" value="1" />
+			                  <input type="hidden" name="act" value="act_account" />
+			                  <input type="submit" name="submit" value="{$lang.submit_request}" />
+			                  <input type="reset" name="reset" value="{$lang.button_reset}" />
+			                </td>
+			              </tr>
+			            </table>
+			          </form>
+			          </div>
+			          <!-- {/if} -->
+			          <!-- {if $action eq "account_deposit"} -->
+			          <form name="formsurplus" method="post" action="user.php" onsubmit="return submitsurplus()">
+			            <table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+			              <tr>
+			                <th width="15%">{$lang.deposit_money}:</th>
+			                <td><input type="text" name="amount" value="{$order.amount|escape}" size="30" /></td>
+			              </tr>
+			              <tr>
+			                <th>{$lang.process_notic}:</th>
+			                <td><textarea name="user_note" cols="55" rows="6">{$order.user_note|escape}</textarea></td>
+			              </tr>
+			              <tr>
+			                <td colspan="2"><strong>{$lang.payment}:</strong></td>
+			              </tr>
+			              <tr>
+			                <td align="center" colspan="2" valign="top">
+			                  <table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable" style="margin-bottom:0;">
+			                    <tr align="center">
+			                      <th width="15%">{$lang.pay_name}</th>
+			                      <th width="68%">{$lang.pay_desc}</th>
+			                      <th width="17%">{$lang.pay_fee}</th>
+			                    </tr>
+			                    <!-- {foreach from=$payment item=list} -->
+			                    <tr>
+			                      <td align="left"><input type="radio" name="payment_id" value="{$list.pay_id}" /><strong>{$list.pay_name}</strong></td>
+			                      <td align="left">{$list.pay_desc}</td>
+			                      <td align="right">{$list.pay_fee}</td>
+			                    </tr>
+			                    <!-- {/foreach} -->
+			                  </table>
+			                </td>
+			              </tr>
+			              <tr>
+			                <td>&nbsp;</td>
+			                <td><input type="hidden" name="surplus_type" value="0" />
+			                  <input type="hidden" name="rec_id" value="{$order.id}" />
+			                  <input type="hidden" name="act" value="act_account" />
+			                  <input type="submit" name="submit" value="{$lang.submit_request}" />
+			                  <input type="reset" name="reset" value="{$lang.button_reset}" />
+			                </td>
+			              </tr>
+			            </table>
+			          </form>
+			          </div>
+			          <!-- {/if} -->
+			          <!-- {if $action eq "act_account"} -->
+			 	<div class="container4">
+			           <div class="title-div2"><span><a href="user.php?act=account_deposit">{$lang.surplus_type_0}</a> | <a href="user.php?act=account_raply">{$lang.surplus_type_1}</a> | <a href="user.php?act=account_detail">{$lang.add_surplus_log}</a> | <a href="user.php?act=account_log">{$lang.view_application}</a></span><h3>账户明细</h3></div>
+			         <table width="100%" border="1" cellspacing="1" cellpadding="8" class="listtable">
+			            <tr>
+			              <td width="25%" align="right"><strong>{$lang.surplus_amount}</strong></td>
+			              <td width="80%">{$amount}</td>
+			            </tr>
+			            <tr>
+			              <td align="right"><strong>{$lang.payment_name}</strong></td>
+			              <td>{$payment.pay_name}</td>
+			            </tr>
+			            <tr>
+			              <td align="right"><strong>{$lang.payment_fee}</strong></td>
+			              <td>{$pay_fee}</td>
+			            </tr>
+			            <tr>
+			              <td align="right" valign="middle"><strong>{$lang.payment_desc}</strong></td>
+			              <td>{$payment.pay_desc}</td>
+			            </tr>
+			            <tr>
+			              <td colspan="2">{$payment.pay_button}</td>
+			            </tr>
+			          </table>
+			          </div>
+			          <!-- {/if} -->
+			      <!-- {if $action eq "account_detail"} -->
+			          <table width="100%" border="1" cellspacing="1" cellpadding="8" class="listtable">
+			            <tr align="center">
+			              <th>{$lang.process_time}</th>
+			              <th>{$lang.surplus_pro_type}</th>
+			              <th>{$lang.money}</th>
+			              <th>{$lang.change_desc}</th>
+			            </tr>
+			            <!--{foreach from=$account_log item=item}-->
+			            <tr>
+			              <td align="center">{$item.change_time}</td>
+			              <td align="center">{$item.type}</div></td>
+			              <td align="right">{$item.amount}</td>
+			              <td title="{$item.change_desc}">{$item.short_change_desc}</td>
+			            </tr>
+			            <!--{/foreach}-->
+			            <tr>
+			              <td colspan="4" align="center"><div align="right">{$lang.current_surplus}{$surplus_amount}</div></td>
+			            </tr>
+			          </table>
+			          <!-- #beginlibraryitem "/library/pages.lbi" -->
+				<form action="{$smarty.server.php_self}" method="get" name="selectpageform" id="selectpageform">
+				  <div id="pager"> {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+				    <!--{foreach from=$pager.search key=key item=item}-->
+				    <input type="hidden" name="{$key}" value="{$item}" />
+				    <!--{/foreach}-->
+				    <select name="page" id="page" onchange="selectpage(this)">
+				    {html_options options=$pager.array selected=$pager.page}
+				    </select>
+				  </div>
+				</form>
+				<script type="text/javascript" language="javascript">
+				<!--
+				{literal}
+				function selectpage(sel)
+				{
+				  sel.form.submit();
+				}
+				{/literal}
+				//-->
+				</script>
+				<!-- #endlibraryitem --></div>
+			<!-- {/if} -->
+			<!-- {if $action eq "account_log"} -->
+		          <table width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+		            <tr align="center">
+		              <th>{$lang.process_time}</th>
+		              <th>{$lang.surplus_pro_type}</th>
+		              <th>{$lang.money}</th>
+		              <th>{$lang.process_notic}</th>
+		              <th>{$lang.admin_notic}</th>
+		              <th>{$lang.is_paid}</th>
+		              <th>{$lang.handle}</th>
+		            </tr>
+		            <!--{foreach from=$account_log item=item}-->
+		            <tr>
+		              <td align="center">{$item.add_time}</td>
+		              <td align="center">{$item.type}</td>
+		              <td align="right">{$item.amount}</td>
+		              <td align="right"><a href="#" title="{$item.user_note}">{$item.short_user_note}</a></td>
+		              <td align="right"><a href="#" title="{$item.admin_note}">{$item.short_admin_note}</a></td>
+		              <td align="center">{$item.pay_status}</td>
+		              <td align="center">{$item.handle}
+		                <!-- {if ($item.is_paid eq 0 && $item.process_type eq 1) || $item.handle} -->
+		                <a href="user.php?act=cancel&id={$item.id}" onclick="if (!confirm('{$lang.confirm_remove_account}')) return false;">{$lang.is_cancel}</a>
+		                <!-- {/if} -->
+		              </td>
+		            </tr>
+		            <!--{/foreach}-->
+		            <tr>
+		              <td colspan="7" align="right">{$lang.current_surplus}{$surplus_amount}</td>
+		            </tr>
+		          </table>
+				<!-- #beginlibraryitem "/library/pages.lbi" -->
+				<form action="{$smarty.server.php_self}" method="get" name="selectpageform" id="selectpageform">
+				  <div id="pager"> {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+				    <!--{foreach from=$pager.search key=key item=item}-->
+				    <input type="hidden" name="{$key}" value="{$item}" />
+				    <!--{/foreach}-->
+				    <select name="page" id="page" onchange="selectpage(this)">
+				    {html_options options=$pager.array selected=$pager.page}
+				    </select>
+				  </div>
+				</form>
+				<script type="text/javascript" language="javascript">
+				<!--
+				{literal}
+				function selectpage(sel)
+				{
+				  sel.form.submit();
+				}
+				{/literal}
+				//-->
+				</script>
+				<!-- #endlibraryitem -->
+				</div>
+			<!-- {/if} -->
+			<!--#收货地址页面 -->
+				<!--{if $action eq 'address_list'} -->
+					<div class="container4">
+						<div class="title-div2"><h3>收货人信息</h3></div>
+						{* 包含脚本文件 *}
+						{insert_scripts files='utils.js,transport.js,region.js,shopping_flow.js'}
+						<script type="text/javascript">
+						  region.isadmin = false;
+						  {foreach from=$lang.flow_js item=item key=key}
+						  var {$key} = "{$item}";
+						  {/foreach}
+						  {literal}
+						  onload = function() {
+						    if (!document.all)
+						    {
+						      document.forms['theform'].reset();
+						    }
+						  }
+						  {/literal}
+						</script>
+						<!-- {foreach from=$consignee_list item=consignee key=sn} -->
+						<form action="user.php" method="post" name="theform" onsubmit="return checkconsignee(this)">
+						  <table align="center" width="100%" border="1" cellspacing="1" cellpadding="4" class="listtable">
+						    <tr>
+						      <th align="left">{$lang.country_province}:</th>
+						      <td colspan="3"><select name="country" id="selcountries_{$sn}" onchange="region.changed(this, 1, 'selprovinces_{$sn}')">
+						          <option value="0">{$lang.please_select}{$name_of_region[0]}</option>
+						          <!-- {foreach from=$country_list item=country} -->
+						          <option value="{$country.region_id}" {if $consignee.country eq $country.region_id}selected{/if}>{$country.region_name}</option>
+						          <!-- {/foreach} -->
+						        </select>
+						        <select name="province" id="selprovinces_{$sn}" onchange="region.changed(this, 2, 'selcities_{$sn}')">
+						          <option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+						          <!-- {foreach from=$province_list.$sn item=province} -->
+						          <option value="{$province.region_id}" {if $consignee.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+						          <!-- {/foreach} -->
+						        </select>
+						        <select name="city" id="selcities_{$sn}" onchange="region.changed(this, 3, 'seldistricts_{$sn}')">
+						          <option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+						          <!-- {foreach from=$city_list.$sn item=city} -->
+						          <option value="{$city.region_id}" {if $consignee.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+						          <!-- {/foreach} -->
+						        </select>
+						        <select name="district" id="seldistricts_{$sn}" {if !$district_list.$sn}style="display:none"{/if}>
+						          <option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+						          <!-- {foreach from=$district_list.$sn item=district} -->
+						          <option value="{$district.region_id}" {if $consignee.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+						          <!-- {/foreach} -->
+						        </select>
+						        {$lang.require_field} </td>
+						    </tr>
+						    <tr>
+						      <th align="left">{$lang.consignee_name}:</th>
+						      <td><input name="consignee" type="text" id="consignee_{$sn}" value="{$consignee.consignee|escape}" />
+						        {$lang.require_field} </td>
+						      <th align="left">{$lang.email_address}:</th>
+						      <td><input name="email" type="text" id="email_{$sn}" value="{$consignee.email|escape}" />
+						        {$lang.require_field}</td>
+						    </tr>
+						    <tr>
+						      <th align="left">{$lang.detailed_address}:</th>
+						      <td><input name="address" type="text" id="address_{$sn}" value="{$consignee.address|escape}" />
+						        {$lang.require_field}</td>
+						      <th align="left">{$lang.postalcode}:</th>
+						      <td><input name="zipcode" type="text" id="zipcode_{$sn}" value="{$consignee.zipcode|escape}" /></td>
+						    </tr>
+						    <tr>
+						      <th align="left">{$lang.phone}:</th>
+						      <td><input name="tel" type="text" id="tel_{$sn}" value="{$consignee.tel|escape}" />
+						        {$lang.require_field}</td>
+						      <th align="left">{$lang.backup_phone}:</th>
+						      <td><input name="mobile" type="text" id="mobile_{$sn}" value="{$consignee.mobile|escape}" /></td>
+						    </tr>
+						    <tr>
+						      <th align="left">{$lang.sign_building}:</th>
+						      <td><input name="sign_building" type="text" id="sign_building_{$sn}" value="{$consignee.sign_building|escape}" /></td>
+						      <th align="left">{$lang.deliver_goods_time}:</th>
+						      <td><input name="best_time" type="text" id="best_time_{$sn}" value="{$consignee.best_time|escape}" /></td>
+						    </tr>
+						    <tr>
+						      <td>&nbsp;</td>
+						      <td colspan="3" align="center"><!-- {if $consignee.consignee && $consignee.email} -->
+						        <input type="submit" name="submit" value="{$lang.confirm_edit}" />
+						        <input name="button" type="button" onclick="if (confirm('{$lang.confirm_drop_address}'))location.href='user.php?act=drop_consignee&id={$consignee.address_id}'" value="{$lang.drop}" />
+						        <!-- {else} -->
+						        <input type="submit" name="submit" value="{$lang.add_address}" />
+						        <!-- {/if} -->
+						        <input type="hidden" name="act" value="act_edit_address" />
+						        <input name="address_id" type="hidden" value="{$consignee.address_id}" />
+						      </td>
+						    </tr>
+						  </table>
+						</form>
+						<!-- {/foreach} -->
+					</div>
+				<!--{/if} -->
+			<!--#收货地址添加页面 -->
+			<!--* 积分兑换-->
+       <!--{if $action eq 'transform_points'} -->
+			 <div class="container4">
+       <div class="title-div2"><h3>{$lang.transform_points}</h3></div>
+       <!--{if $exchange_type eq 'ucenter'}-->
+        <form action="user.php" method="post" name="transForm" onsubmit="return calcredit();">
+       <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+			    <tr>
+					<th width="120" bgcolor="#FFFFFF" align="right" valign="top">{$lang.cur_points}:</th>
+					<td bgcolor="#FFFFFF">
+					<label for="pay_points">{$lang.exchange_points.1}:</label><input type="text" size="15" id="pay_points" name="pay_points" value="{$shop_points.pay_points}" style="border:0;border-bottom:1px solid #DADADA;" readonly="readonly" /><br />
+					<div class="blank"></div>
+					<label for="rank_points">{$lang.exchange_points.0}:</label><input type="text" size="15" id="rank_points" name="rank_points" value="{$shop_points.rank_points}" style="border:0;border-bottom:1px solid #DADADA;" readonly="readonly" />
+					</td>
+					</tr>
+          <tr><td bgcolor="#FFFFFF">&nbsp;</td>
+          <td bgcolor="#FFFFFF">&nbsp;</td>
+          </tr>
+          <tr>
+            <th align="right" bgcolor="#FFFFFF"><label for="amount">{$lang.exchange_amount}:</label></th>
+            <td bgcolor="#FFFFFF"><input size="15" name="amount" id="amount" value="0" onkeyup="calcredit();" type="text" />
+                <select name="fromcredits" id="fromcredits" onchange="calcredit();">
+                  {html_options options=$lang.exchange_points selected=$selected_org}
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <th align="right" bgcolor="#FFFFFF"><label for="desamount">{$lang.exchange_desamount}:</label></th>
+            <td bgcolor="#FFFFFF"><input type="text" name="desamount" id="desamount" disabled="disabled" value="0" size="15" />
+              <select name="tocredits" id="tocredits" onchange="calcredit();">
+                {html_options options=$to_credits_options selected=$selected_dst}
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th align="right" bgcolor="#FFFFFF">{$lang.exchange_ratio}:</th>
+            <td bgcolor="#FFFFFF">1 <span id="orgcreditunit">{$orgcreditunit}</span> <span id="orgcredittitle">{$orgcredittitle}</span> {$lang.exchange_action} <span id="descreditamount">{$descreditamount}</span> <span id="descreditunit">{$descreditunit}</span> <span id="descredittitle">{$descredittitle}</span></td>
+          </tr>
+          <tr><td bgcolor="#FFFFFF">&nbsp;</td>
+          <td bgcolor="#FFFFFF"><input type="hidden" name="act" value="act_transform_ucenter_points" /><input type="submit" name="transfrom" value="{$lang.transform}" /></td></tr>
+  </table>
+        </form>
+       <script type="text/javascript">
+        {foreach from=$lang.exchange_js item=lang_js key=key}
+        var {$key} = '{$lang_js}';
+        {/foreach}
+
+        var out_exchange_allow = new Array();
+        {foreach from=$out_exchange_allow item=ratio key=key}
+        out_exchange_allow['{$key}'] = '{$ratio}';
+        {/foreach}
+
+        function calcredit()
+        {
+            var frm = document.forms['transForm'];
+            var src_credit = frm.fromcredits.value;
+            var dest_credit = frm.tocredits.value;
+            var in_credit = frm.amount.value;
+            var org_title = frm.fromcredits[frm.fromcredits.selectedIndex].innerHTML;
+            var dst_title = frm.tocredits[frm.tocredits.selectedIndex].innerHTML;
+            var radio = 0;
+            var shop_points = ['rank_points', 'pay_points'];
+            if (parseFloat(in_credit) > parseFloat(document.getElementById(shop_points[src_credit]).value))
+            {
+                alert(balance.replace('{%s}', org_title));
+                frm.amount.value = frm.desamount.value = 0;
+                return false;
+            }
+            if (typeof(out_exchange_allow[dest_credit+'|'+src_credit]) == 'string')
+            {
+                radio = (1 / parseFloat(out_exchange_allow[dest_credit+'|'+src_credit])).toFixed(2);
+            }
+            document.getElementById('orgcredittitle').innerHTML = org_title;
+            document.getElementById('descreditamount').innerHTML = radio;
+            document.getElementById('descredittitle').innerHTML = dst_title;
+            if (in_credit > 0)
+            {
+                if (typeof(out_exchange_allow[dest_credit+'|'+src_credit]) == 'string')
+                {
+                    frm.desamount.value = Math.floor(parseFloat(in_credit) / parseFloat(out_exchange_allow[dest_credit+'|'+src_credit]));
+                    frm.transfrom.disabled = false;
+                    return true;
+                }
+                else
+                {
+                    frm.desamount.value = deny;
+                    frm.transfrom.disabled = true;
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+       </script>
+       <!--{else}-->
+        <b>{$lang.cur_points}:</b>
+        <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+          <tr>
+            <td width="30%" valign="top" bgcolor="#FFFFFF"><table border="0">
+              <!--{foreach from=$bbs_points item=points}-->
+              <tr>
+                <th>{$points.title}:</th>
+                <td width="120" style="border-bottom:1px solid #DADADA;">{$points.value}</td>
+              </tr>
+              <!--{/foreach} -->
+            </table></td>
+            <td width="50%" valign="top" bgcolor="#FFFFFF"><table>
+                    <tr>
+                <th>{$lang.pay_points}:</th>
+                <td width="120" style="border-bottom:1px solid #DADADA;">{$shop_points.pay_points}</td>
+                    </tr>
+              <tr>
+                <th>{$lang.rank_points}:</th>
+                <td width="120" style="border-bottom:1px solid #DADADA;">{$shop_points.rank_points}</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+        <br />
+        <b>{$lang.rule_list}:</b>
+        <ul>
+          <!-- {foreach from=$rule_list item=rule} -->
+          <li>"{$rule.from}" {$lang.transform} "{$rule.to}" {$lang.rate_is} {$rule.rate}
+          <!-- {/foreach} -->
+        </ul>
+        <form action="user.php" method="post" name="theForm">
+        <table width="100%" border="1" align="center" cellpadding="5" cellspacing="0" style="border-collapse:collapse;border:1px solid #DADADA;">
+          <tr style="background:#F1F1F1;">
+            <th>{$lang.rule}</th>
+            <th>{$lang.transform_num}</th>
+            <th>{$lang.transform_result}</th>
+          </tr>
+          <tr>
+            <td>
+              <select name="rule_index" onchange="changeRule()">
+                <!--{foreach from=$rule_list item=rule key=key}-->
+                <option value="{$key}">{$rule.from}->{$rule.to}</option>
+                <!--{/foreach}-->
+              </select>
+          </td>
+          <td>
+            <input type="text" name="num" value="0" onkeyup="calPoints()"/>
+          </td>
+          <td><span id="ECS_RESULT">0</span></td>
+          </tr>
+          <tr>
+            <td colspan="3" align="center"><input type="hidden" name="act" value="act_transform_points"  /><input type="submit" value="{$lang.transform}" /></td>
+          </tr>
+        </table>
+        </form>
+       <script type="text/javascript">
+          //<![CDATA[
+            var rule_list = new Object();
+            var invalid_input = '{$lang.invalid_input}';
+            {foreach from=$rule_list item=rule key=key}
+            rule_list['{$key}'] = '{$rule.rate}';
+            {/foreach}
+            function calPoints()
+            {
+              var frm = document.forms['theForm'];
+              var rule_index = frm.elements['rule_index'].value;
+              var num = parseInt(frm.elements['num'].value);
+              var rate = rule_list[rule_index];
+
+              if (isNaN(num) || num < 0 || num != frm.elements['num'].value)
+              {
+                document.getElementById('ECS_RESULT').innerHTML = invalid_input;
+                rerutn;
+              }
+              var arr = rate.split(':');
+              var from = parseInt(arr[0]);
+              var to = parseInt(arr[1]);
+
+              if (from <=0 || to <=0)
+              {
+                from = 1;
+                to = 0;
+              }
+              document.getElementById('ECS_RESULT').innerHTML = parseInt(num * to / from);
+            }
+
+            function changeRule()
+            {
+              document.forms['theForm'].elements['num'].value = 0;
+              document.getElementById('ECS_RESULT').innerHTML = 0;
+            }
+          //]]>
+       </script>
+       <!--{/if}-->
+			 </div>
+        <!--{/if} -->
+        <!--#积分兑换 -->
+		</div>
+	</div>
+	<!-- #beginlibraryitem "/library/help.lbi" -->
+		<!--{if $helps}-->
+		<div class="cart-div ctrlwidthbox1">
+			<table cellpadding="0" cellspacing="1" class="helpcat">
+				<tr>
+					<!-- {foreach from=$helps item=help_cat} -->
+					<td valign="top">{$help_cat.cat_name}
+						<ul>
+							<!-- {foreach from=$help_cat.article item=item} -->
+							<li><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></li>
+							<!-- {/foreach} -->
+						</ul>
+					</td>
+					<!-- {/foreach} -->
+				</tr>
+			</table>
+		</div>
+		<!--{/if}-->
+	<!-- #endlibraryitem -->
+	<!-- #beginlibraryitem "/library/page_footer.lbi" -->
+		<div id="footer-table">
+			<div class="ctrlwidthbox">
+				<div class="footerlinks">
+				<!-- {if $navigator_list.bottom} -->
+					<!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+					<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a> 
+					<!-- {if !$smarty.foreach.nav_bottom_list.last} -->|<!-- {/if} -->
+					<!-- {/foreach} -->
+				<!-- {/if} -->
+				</div>
+				<div>{$copyright}</div>
+				<div>{$shop_address} {$shop_postcode}</div>
+				<div>
+					<!-- 客服电话{if $service_phone} -->
+				      tel: {$service_phone}
+				      <!-- 结束客服电话{/if} -->
+				      <!-- qq 号码 {foreach from=$qq item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://wpa.qq.com/msgrd?v=1&amp;uin={$im}&amp;site={$shop_name}&amp;menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="qq" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束qq号码 -->
+				      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!--{/foreach} 结束淘宝旺旺 -->
+				      <!-- yahoo messenger {foreach from=$ym item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="yahoo messenger" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束yahoo messenger -->
+				      <!-- msn messenger {foreach from=$msn item=im} -->
+				      <!-- {if $im} -->
+				      <img src="../images/msn.gif" width="18" height="17" border="0" alt="msn" /> {$im}
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束msn messenger -->
+				      <!-- skype {foreach from=$skype item=im} -->
+				      <!-- {if $im} -->
+				      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} -->
+				</div>
+				<!-- icp 证书{if $icp_number} -->
+				<p>{$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a></p>
+				<!-- 结束icp 证书{/if} -->
+				<div>{insert name='query_info'}</div>
+				<div><a href="http://www.ecshop.com" target="_blank">powered by <strong><span style="color:#c6005b">ecshop {$ecs_version}</span></strong></a></div>
+				{if $stats_code}
+				<div>{$stats_code}</div>
+				{/if}
+				<script type="text/javascript">
+				var process_request = "{$lang.process_request}";
+				</script>
+			</div>
+		</div>
+	<!-- #endlibraryitem -->
+</div><!-- end #globalwrapper -->
+</body>
+</html>

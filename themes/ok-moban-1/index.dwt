@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+</head>
+<body class="index_body">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+<div class="block clearfix">
+<DIV class="index_tap " >
+<div class="index_tap_ad fl" >
+<!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
+</DIV><!-- 新品快报  begin-->
+<DIV class="index_kb fl"><IMG src="images/index_kb_img_186x28.gif"><UL>
+<!--{foreach from=$new_articles item=article name=new_articles}-->
+<!--{if $smarty.foreach.new_articles.iteration <= 5 }-->
+<li>
+<a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:20:"...":true}</a>
+</li>
+<!--{/if}-->
+<!--{/foreach}-->
+  
+  </UL></DIV><!-- 新品快报  end-->
+<DIV class="index_ad3 fl" >
+<!-- TemplateBeginEditable name="每周特价广告" -->
+<A href="http://www.ok-moban.com/" target=_blank><IMG 
+src="images/img201153110825155.jpg"></A>
+<!-- TemplateEndEditable -->
+</DIV>
+<DIV class=fl></DIV>
+<DIV class=clear></DIV></DIV>
+<DIV class=clear></DIV>
+<DIV class="product_access clearfix">
+<DIV class=product_access_top><IMG src="images/product_access_top_img_new.gif"></DIV>
+<!-- #BeginLibraryItem "/library/recommend_new.lbi" --><!-- #EndLibraryItem -->
+</DIV>
+
+<DIV class=blank></DIV>
+<DIV class=clear></DIV>
+<DIV class="product_access clearfix">
+<DIV class=product_access_top><IMG src="images/product_access_top_img_216x33.gif"></DIV>
+<!-- #BeginLibraryItem "/library/recommend_hot.lbi" --><!-- #EndLibraryItem -->
+</DIV>
+
+
+<DIV class=blank></DIV>
+<DIV class=clear></DIV>
+<DIV class="product_access clearfix">
+<DIV class=product_access_top><IMG src="images/product_access_top_img_best.gif"></DIV>
+<!-- #BeginLibraryItem "/library/recommend_best.lbi" --><!-- #EndLibraryItem -->
+</DIV>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</DIV>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+ 
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

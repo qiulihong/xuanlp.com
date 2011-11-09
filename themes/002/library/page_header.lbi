@@ -1,0 +1,77 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="append_parent"></div>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div id="page-header">
+	<div class="headerline"><p></p></div>
+	<div class="headerbody">
+		<p class="logo"><a href="../index.php" name="top"><img src="../images/logo.gif" alt="{$page_title}" border="0" /></a></p>
+		<p class="menu">
+			<span class="corgreyl"></span>
+			<span class="corgreyc">
+			<!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+				<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+				<!-- {if !$smarty.foreach.nav_top_list.last} -->--<!-- {/if} -->
+			<!-- {/foreach} -->
+			</span>
+			<span class="corgreyr"></span>
+		</p>
+	</div>
+</div>
+<div class="searchblock clearfix">
+	<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" style="float:left; width:auto; margin-left:140px; display:inline;">
+		<select name="category" id="category">
+			<option value="0">{$lang.all_category}</option>
+			{$category_list}
+		</select>
+		<input name="keywords" class="textbox" type="text" id="keyword" value="{$search_keywords|escape}" />
+		<input type="submit" value="搜索" class="shortbtn" />
+		<input type="button" value="{$lang.advanced_search}" onclick="window.location.href='search.php?act=advanced_search'" class="longbtn" />
+	</form>
+	{if $searchkeywords}
+	<div style="padding:0 15px;text-align: right; float:left; margin:5px 0 0 30px; display:inline;">
+	热门搜索：
+	{foreach from=$searchkeywords item=val}
+	 <a href="search.php?keywords={$val|escape}">{$val}</a>
+	{/foreach}
+	</div>
+	{/if}
+	</div>
+<script type="text/javascript">
+{literal}
+<!--
+function checkSearchForm()
+{
+    if(document.getElementById('keyword').value)
+    {
+        
+				return true;
+    }
+    else
+    {
+        alert("请输入搜索关键词！");
+				return false;
+    }
+}
+-->
+{/literal}
+</script>
+<div id="cell-nav">
+	<div class="ctrlwidthbox">
+		<ul>
+			<li><a href="../index.php">{$lang.home}</a><!-- {if $navigator_list.config.index eq 1} --><!-- {/if} --></li>
+			<!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+				<!-- {if $smarty.foreach.nav_middle_list.last}-->
+					<li style="border-right:0px;"><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+				<!-- {else} -->
+					<li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+				<!-- {/if} -->
+				<!-- {if $nav.active eq 1} -->
+				<!-- {/if} -->
+			<!-- {/foreach} -->
+		</ul>
+		
+	</div>
+</div>
+

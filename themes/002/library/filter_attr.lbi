@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $filter_attr_list} -->
+<div class="title-div"><h3>{$filter_attr_name}</h3></div>
+<div class="cart-div">
+  <ul class="article-list1">
+    <!-- {foreach from=$filter_attr_list item=attr} -->
+    {if $attr.selected}
+    <li><a href="{$attr.url}">{$attr.attr_value}{if $attr.goods_num}({$attr.goods_num}){/if}</a></li>
+    {else}
+    <li><a href="{$attr.url}">{$attr.attr_value}{if $attr.goods_num}({$attr.goods_num}){/if}</a></li>
+    {/if}
+    <!-- {/foreach} -->
+  </ul>
+</div>
+<!-- {/if} -->

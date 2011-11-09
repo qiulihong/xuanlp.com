@@ -1,0 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="title-div1"><h3>邮件订阅</h3></div>
+<div class="dark-div" style="text-align:right;">
+	<input type="text" id="user_email" class="shortinput" style="margin:0 0 5px 0 !important;margin:0 2px 5px 0;width:150px;" /><br />
+	<input type="button"  value="{$lang.email_list_ok}" onclick="add_email_list();" class="shortbtn" /> 
+	<input type="button"  value="{$lang.email_list_cancel}" onclick="cancel_email_list();" class="shortbtn" />
+	<script type="text/javascript">
+	var email = document.getElementById('user_email');
+	function add_email_list()
+	{
+		if (check_email())
+		{
+			Ajax.call('user.php?act=email_list&job=add&email=' + email.value, '', rep_add_email_list, 'GET', 'TEXT');
+		}
+	}
+	function rep_add_email_list(text)
+	{
+		alert(text);
+	}
+	function cancel_email_list()
+	{
+		if (check_email())
+		{
+			Ajax.call('user.php?act=email_list&job=del&email=' + email.value, '', rep_cancel_email_list, 'GET', 'TEXT');
+		}
+	}
+	function rep_cancel_email_list(text)
+	{
+		alert(text);
+	}
+	function check_email()
+	{
+		if (Utils.isEmail(email.value))
+		{
+			return true;
+		}
+		else
+		{
+			alert('{$lang.email_invalid}');
+			return false;
+		}
+	}
+	</script>
+</div>

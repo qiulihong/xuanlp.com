@@ -1,0 +1,209 @@
+/*趣玩新版网页css 日期:2009.10.1 by:策*/
+/*全局css设定*/
+HTML { }
+BODY { margin: 0; color: #666666; font:9pt Tahoma,"宋体",Arial,Helvetica,Sans-Serif;line-height:14px; letter-spacing:0;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{ padding: 0; margin: 0;}
+UL,LI { padding:0; margin:0; list-style:none;}
+IMG { border: none; padding: 0; margin: 0;}
+input,img,select {vertical-align:middle;}
+A {color:#666666;}
+A:link { color:#666666; text-decoration: none;}
+A:visited { color:#666666; text-decoration: none;}
+A:hover { color:#c90809; text-decoration: underline;}
+.clear { clear: both; font-size:0; line-height:0; height:0;}
+#clear { clear: both; font-size:0; line-height:0; height:0;}
+
+.fl { float:left;}
+.fr { float:right;}
+
+a.blue { color:#3366cc;}
+a.blue:link { color:#3366cc;}
+a.blue:visited{ color:#3366cc;}
+a.blue:hover { color:#3366cc;}
+
+a.red {color:#c90809;}
+a.red:link { color:#c90809;}
+a.red:visited{color:#c90809;}
+a.red:hover { color:#c90809;}
+
+/*页面通用头部css*/
+#head { margin: 0px auto; width: 960px; height:76px;}
+	#logo { float:left; width:217px; padding-top:17px;}	
+	#head_right { float:right; height:auto; padding-top:3px;display:block;text-align:right;position:relative;z-index:200;}
+		.head_user { height:17px;}
+		.head_user li { display:inline; color:#d8d8d8; text-align:center; position:relative;z-index:201;}
+		.head_user span { color:#666666;}
+		.head_user a { display:inline-block;line-height:17px; }	
+			a.fav_a:link { color:#fff;}
+			a.fav_a:visited { color:#fff;}
+			a.fav_a:hover { color:#fff; text-decoration:none;}
+			#myquwan { position:relative;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -490px 3px; padding-right:15px; line-height:17px;* line-height:19px !important;*line-height:17px;z-index:201;}			
+			#mypop {}	
+			#my_pop {display:none; position:absolute; height:auto; padding-top:20px; width:75px;* width:77px !important;* width:75px; left:-7px; top:-3px;background-color:#fff; border:1px solid #c2c2c2; overflow:hidden; padding-bottom:3px; text-align:left;z-index:200; }
+			#my_pop a { margin-left:6px;}
+			
+			#mypop1 {}	
+			#my_pop1 {display:none; position:absolute; height:auto; padding-top:20px; width:75px;* width:77px !important;* width:75px; left:-7px; top:-3px;background-color:#fff; border:1px solid #c2c2c2; overflow:hidden; padding-bottom:3px; text-align:left;z-index:200; }
+			#my_pop1 a { margin-left:6px;}
+			
+			
+#head_other { padding-top:19px; height:37px;position:relative; z-index:1;}
+			#head_other a {  float:right;z-index:1; margin-left:7px; height:29px; width:86px; overflow:hidden;position:relative;}		
+			#head_other a img { position:absolute; top:0; left:0;}
+			#head_other a:hover {zoom:1;}
+			#head_other a:hover img {top:-29px;}
+			.hot_span { position:absolute; display:block;right:183px; top:8px; height:11px; width:21px; line-height:0; font-size:0;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -532px -98px;}
+			.newspan { position:absolute; display:block;right:193px; top:8px; height:11px; width:21px; line-height:0; font-size:0;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -532px -120px;}
+
+/*页面通用横向导航栏css*/
+#navbox { margin: 0px auto;width: 960px;height:32px; padding-top:1px; background-color:#ca0809;position:relative;z-index:100;}
+#nav {width:958px; padding:0 1px;height:31px;z-index:100; border-top:1px solid #e31c1f;}	
+	.nav_item {float:left;display:block;height:31px;  color:#fff;}
+	.nav_li {position:relative;float:left;width:78px; border-left:1px solid #d4190b;border-right:1px solid #aa0605;display:block;height:27px; line-height:19px; padding-top:4px; }
+	.index_a {color:#fff;display:block; font-size:14px;line-height:17px;* line-height:19px !important;*line-height:19px; font-weight:bold; color:#fff; text-align:center; padding-top:2px;width:78px; height:25px; }
+	a.index_a:link {color:#fff;}
+	a.index_a:visited {color:#fff;}
+	a.index_a:hover {color:#c90809; text-decoration:none;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -79px 0px;}
+	.indexon_a {color:#c0130d;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -79px 0px;}
+	a.indexon_a:link {color:#c90809;}
+	a.indexon_a:visited {color:#c90809;}
+	a.indexon_a:hover {color:#c90809;}	
+	
+	.nav_a { display:block; font-size:14px; line-height:17px;* line-height:19px !important;*line-height:19px; font-weight:bold; color:#fff; text-align:center; padding-top:2px;width:78px; height:25px; background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 9999999px 0px;}
+	a.nav_a:link {color:#fff;}
+	a.nav_a:visited {color:#fff;}
+	a.nav_a:hover {color:#c90809; text-decoration:none;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 8px 0px;}
+	.nav_on {}
+	.on {color:#c90809;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 8px 0px;}
+	a.on:link {color:#c90809;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 8px 0px;}
+	a.on:visited {color:#c90809;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 8px 0px;}
+	a.on:hover {color:#c90809;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 8px 0px;}
+	
+	.nav_hover {}
+		.nava_on {color:#c90809;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -79px 0px;}
+		a.nava_on:link {color:#c90809;}
+		a.nava_on:visited {color:#c90809;}
+		a.nava_on:hover {color:#c90809;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 8px 0px;}
+		
+	.nav_pop { position:absolute; top:31px; width:512px; display:none; height:auto; border:2px solid #c90809; border-top:none;background-color:#fff; padding-top:10px;}
+		.nav_pop dd { width:127px; float:left; border-right:1px solid #f3e5d9; padding-bottom:10px;}		
+		.nav_pop dd p,.nav_pop dd span{ display:block; height:20px; line-height:20px; padding:6px 0px 6px 13px;}
+			.dd_on { background-color:#fff5e9;color:#c90809;height:20px; line-height:20px; }
+			.dd_on a { display:block;}			
+		.nav_pop span a{ color:#c90809; font-weight:bold;}
+		.nav_pop span a:link{ color:#c90809;}
+		.nav_pop span a:visited{ color:#c90809;}
+		.nav_pop span a:hover{ color:#c90809;}
+		
+		.nav_pop a{ display:block; width:114px;}		
+		
+		.pop_left {right:-401px;}
+		.pop_left1 {right:-481px;}
+		.pop_left2 {right:-561px;}
+		.pop_right {left:6px;}
+			
+	#nav_cartbox { float:right;	height:26px; margin-top:4px; margin-right:8px; padding-left:155px;*padding-left:155px !important;*padding-left:148px;}
+	#nav_cartbox li { float:left;}
+		.nav_cart { padding-left:30px; height:26px; line-height:20px;* line-height:22px !important;* line-height:20px; cursor:pointer; position:relative; padding-right:5px; }
+		.nav_carta { color:#fff;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -541px -75px; padding-left:20px;}
+		a.nav_carta:link { color:#fff;}
+		a.nav_carta:visited { color:#fff;}
+		a.nav_carta:hover { color:#fff; text-decoration:none;}
+		.nav_carta font {color:#fff; font-size:12px; font-weight:bold; padding:0 3px;}	
+			
+			.cart_pop { position:absolute; display:none; height:auto;  text-align:center; width:204px; border:2px solid #c90809;background-color:#fff; top:25px; right:-90px;* right:-90px !important;* right:-99px; }
+				.cart_pop dl { border-bottom:1px solid #ccc;margin:10px 15px; padding-bottom:10px;line-height:14px;}
+				.cart_pop dt { float:left; padding-right:10px;}
+				.cart_pop dt img { padding:5px; background-color:#fff; border:1px solid #ddd;}
+				.cart_pop dd { text-align:left;}
+				.cart_pop span { color:#ff0000; margin-right:10px;}
+				.price_cart { float:left; font-weight:bold;color:#cc0000;}
+				.del_cart {float:right; color:#3366cc;}
+				a.del_cart:link { color:#3366cc;}
+				a.del_cart:visited { color:#3366cc;}
+				a.del_cart:hover { color:#3366cc;}
+		.add_cart { margin-bottom:15px; height:23px; width:96px; float:right; margin-right:10px;* margin-right:10px !important;* margin-right:5px; display:block;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -107px -27px;  }		
+	.nav_showcat {background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -541px -47px;width:22px;height:26px; line-height:26px; cursor:pointer;}	
+	.nav_check {width:59px;height:26px; line-height:26px;}
+		.nav_check a {display:block; width:59px; height:22px;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -48px -27px; }
+
+	
+	.cart_count { margin-bottom:10px; text-align:right; padding-right:10px;}
+	.cart_count font { font-weight:bold; color:#cc0000; font-size:12px;}
+
+/*页面通用横向导航栏下方搜索板块css*/	
+.sobox { margin: 0px auto; width:960px; height:36px;margin-bottom:12px; border-bottom:2px solid #f2f2f2;}	
+	.so {margin: 0px auto;width:960px;height:28px; padding-top:7px; border-bottom:1px solid #e4e4e4;overflow:hidden;white-space:nowrap;}
+		#so_txt { height:20px; line-height:20px; width:150px; border:1px solid #d2d2d2;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat -537px -23px; background-color:#fff; color:#9b9b9b; padding-left:20px; margin-right:5px; margin-left:11px;}
+		#so_btn { height:22px; width:48px; border:none;cursor:pointer;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) no-repeat 0px -27px;}
+	.so a { margin:0 10px;}	
+/*页面通用主题css*/
+
+#main,#global_body { margin: 0px auto; width: 960px; height:auto;}
+.top_ad { height:auto;margin-bottom:15px; overflow:hidden;}
+	.top_ad img { width:960px;}
+/*页面通用页脚css*/		
+#foot{margin: 0px auto;width: 100%; height:auto; color:#000000;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) repeat-x 0 -273px;background-color:#fafafa; margin-top:15px; }		
+	#footer { margin: 0px auto; width: 960px; padding-top:25px; height:auto;}
+		#phone { float:left; width:166px;height:113px; position:relative; overflow:hidden;}
+			#phone img { position:absolute;  top:-160px; left:0px;}
+		#help_box {float:right;  width:794px; height:130px; }		
+		.help { float:left;width:137px; padding-left:21px; height:117px;}
+		.help dt {height:22px; border-bottom:1px solid #dddddd; margin-bottom:5px;}
+			.help dt span { background-image:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif); background-repeat:no-repeat; display:inline-block; height:17px; }
+			.help1 {width:65px; background-position:2px -50px; margin-left:8px;}
+			.help2 {width:65px; background-position:-62px -50px;margin-left:8px;}
+			.help3 {width:72px; background-position:-197px -50px;}
+			.help4 {width:70px; background-position:-125px -50px;}
+			.help5 {width:65px; background-position:-270px -50px;margin-left:6px;}
+		.help dd { display:block;  height:18px; line-height:18px;  padding-left:15px; margin-left:8px;}		
+		.help dd a { color:#999;}
+		.help dd a:link { color:#999;}
+		.help dd a:visited { color:#999;}
+		.help dd a:hover { color:#c90809;}
+		
+.guarantee{ height:68px; width:960px; position:relative;}
+ 	.guarantee dt { position:absolute; z-index:0;top:2px;*top:0px !important;*top:0px; left:2px;height:68px; width:960px; background-color:#f0f0f0;}
+	.guarantee dd { border:1px solid #d1d1d1;width:953px; background-color:#fff; text-align:center; height:auto; padding:16px 0 16px 5px;position:absolute;z-index:1; top:0; left:0;}
+	.guarantee dd a { display:inline-block; height:31px;background-image:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif); background-repeat:no-repeat;}
+	.guar_1 { width:300px;background-position:0 -67px;}
+	.guar_2 {width:315px;background-position:0 -98px;}
+	.guar_3 {width:290px;background-position:0 -129px;}
+
+	
+#honor { margin-top:12px;}
+	#honor a { display:block; float:left;height:50px;background-image:url(http://i1.quwan.com/themes/default/imgs/global/public_honors.gif); background-repeat:no-repeat;}
+	.honor1 { width:162px;background-position:0px 0px; margin-right:10px; }
+	.honor2 {width:155px;background-position:-162px 0px; margin-right:10px; }
+	.honor3 {width:155px;background-position:-317px 00px; margin-right:10px; }
+	.honor4 {width:155px;background-position:-472px 0px; margin-right:10px; }
+	.honor5 {width:119px;background-position:-627px 0px; margin-right:10px; }
+	.honor6 {width:164px;background-position:-746px 0px; margin-right:0;}
+
+
+
+#links { color:#999; text-align:center; height:32px; line-height:32px; padding-left:10px;padding-right:10px; margin-top:20px;}
+	#links span { padding:0 10px;}
+	#links a{ color:#999;}
+	#links a:link {color:#999;} 
+	#links a:visited {color:#999;} 
+	#links a:hover {color:#c90809;} 
+
+#copyright { text-align:center; color:#999; margin-top:5px; padding-bottom:30px; line-height:22px;}
+	
+
+.scroll_div {background:url(http://i1.quwan.com/themes/default/imgs/global/scroll.png) no-repeat top center;bottom:200px; position: fixed; left:1000px; z-index:1;_position: absolute; _bottom: auto; _top: expression( eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop + 
+
+(documentElement.clientHeight - this.clientHeight) - 1 : document.body.scrollTop + (document.body.clientHeight - this.clientHeight) - 1); height:65px; width:21px; display:none; color:#FFFFFF; cursor:pointer;}	
+
+* html .scroll_div {background:none;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=corp, src='http://i1.quwan.com/themes/default/imgs/global/scroll.png');bottom:200px;
+}	
+
+	.page_box { padding-top:15px; height:24px; line-height:23px;*line-height:23px !important; *line-height:25px;  text-align:center; padding-bottom:18px;}
+	.page_box a {display:inline-block;  height:23px; padding:0 9px;}
+
+	.page_box span {border:1px solid #dbdbdb; height:23px;display:inline-block; *vertical-align :middle !important; margin:0 3px; }
+	.page_box font { font-size:12px;padding:0 5px;}
+	.page_box b { font-weight:normal; color:#cc0809;}
+	#page_on { border:1px solid #ca0809; background-color:#fff9eb; color:#ca0809;padding:0 9px;}

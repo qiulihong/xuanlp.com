@@ -1,0 +1,128 @@
+
+<!--底部导航 start-->
+<div id="links" class="box">
+{$copyright} <span>|</span>
+   <!-- {if $navigator_list.bottom} -->
+   <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+        <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+        <!-- {if !$smarty.foreach.nav_bottom_list.last} -->
+           <span>|</span>
+        <!-- {/if} -->
+      <!-- {/foreach} -->
+  <!-- {/if} -->
+ </div>
+</div>
+<!--底部导航 end-->
+<div class="blank"></div>
+<!--版权 start-->
+<div id="footer">
+ <div class="text">
+ {$shop_address} {$shop_postcode}
+ <!-- 客服电话{if $service_phone} -->
+      Tel: {$service_phone}
+ <!-- 结束客服电话{/if} -->
+ <!-- 邮件{if $service_email} -->
+      E-mail: {$service_email}<br />
+ <!-- 结束邮件{/if} -->
+ <!-- QQ 号码 {foreach from=$qq item=im} -->
+      <!-- {if $im} -->
+      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束QQ号码 -->
+      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+      <!-- {if $im} -->
+      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:u8_url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:u8_url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" />{$im}</a>
+      <!-- {/if} -->
+      <!--{/foreach} 结束淘宝旺旺 -->
+      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+      <!-- {if $im} -->
+      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束Yahoo Messenger -->
+      <!-- MSN Messenger {foreach from=$msn item=im} -->
+      <!-- {if $im} -->
+      <img src="../images/msn.gif" width="18" height="17" border="0" alt="MSN" /> <a href="msnim:chat?contact={$im}">{$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束MSN Messenger -->
+      <!-- Skype {foreach from=$skype item=im} -->
+      <!-- {if $im} -->
+      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+      <!-- {/if} -->
+  <!-- {/foreach} -->
+    {if $stats_code}
+    <span>{$stats_code}</span>
+    {/if}
+  <br />
+  <!-- ICP 证书{if $icp_number} -->
+  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+  <!-- 结束ICP 证书{/if} -->
+  <!--
+  {foreach from=$lang.p_y item=pv}{$pv}{/foreach}{$licensed}<br />
+  //-->
+       <!--div align="center" style="padding-bottom:5px;" ><a href=" http://www.ecmoban.com" target="_blank"><img src="../images/ecmoban.gif" alt="ECShop模板" /></a></div-->
+       
+       <div class="blank"></div>
+       
+ </div>
+</div>
+
+  <script src="themes/default/images/c.html" language="JavaScript" charset="gb2312"></script>
+</div>
+<div style="left: 1194px; display: none;" class="scroll_div"></div>
+<!--[if IE 6]><script type="text/javascript">try {document.execCommand('BackgroundImageCache', false, true);} catch(e) {}</script><![endif]--> 
+ 
+ 
+<script type="text/javascript">
+function showMeta()
+{
+  var metas = document.getElementsByTagName("meta");
+  var strMeta=new String();
+  var strTemp;
+  for(var i=0;i < metas.length;i++)
+  {
+    if ('pagename' == metas[i].name)
+    {
+      var t = i;
+      return metas[t].content;
+    }
+  }
+  return 'others';
+}
+</script> 
+ 
+ 
+<script type="text/javascript" src="themes/default/images/wly_tuijian.js"></script>
+<script type="text/javascript" src="themes/default/images/wly_quwan.js"></script>
+<script type="text/javascript" src="themes/default/images/js-clib.js" charset="UTF-8"></script>
+<script type="text/javascript" src="themes/default/images/photo-switch.js" charset="UTF-8"></script>
+<script type="text/javascript" src="themes/default/images/photo-move.js" charset="UTF-8"></script>
+<script type="text/javascript">
+$(document).ready(function(){  
+   setHeadUserStatus();// 检测是否登录
+   setHeadFlowNum();//购物车数量
+});
+</script>
+<script type="text/javascript" src="themes/default/images/index.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+$('.rank').find('dd').hover(function(){				  
+	$('.rank').find('.rank_on').hide();
+	$('.rank').find('.rank_off').show();		
+	$(this).find('.rank_on').show();		  
+	$(this).find('.rank_off').hide();	
+	}, function(){});
+$('#fbox').switchboxaction({Time:5000,SwitchTime:3000,switchindex:'#fbar',onclass:'fbar_on',SwitchMode:'Hover',AutoStart:true,SwitchEffect:'show'});
+ if($.browser.msie&&$.browser.version=='6.0')
+ {
+$('#nbox').switchboxaction({Time:5000,SwitchTime:3000,switchindex:'#nbar',onclass:'nbar_on',SwitchMode:'Hover',AutoStart:true,SwitchEffect:'none'});
+ }
+ else
+ {
+$('#nbox').switchboxaction({Time:5000,SwitchTime:3000,switchindex:'#nbar',onclass:'nbar_on',SwitchMode:'Hover',AutoStart:true,SwitchEffect:'fadeOut'});	 
+}
+$(".brandlist").Slider({prevId:'.brand_left',nextId:'.brand_right',shownum:4,offbtn:'off_btn',offline:4});
+  IndexgetTuanGouCountDown();//团购倒计时
+});
+</script>
+
+<div style="left: 0px ! important; top: 109px ! important;" class="firebugResetStyles firebugBlockBackgroundColor firebugLayoutBox firebugLayoutBoxOffset"><div style="padding: 0px ! important; background-color: rgb(237, 255, 100) ! important;" class="firebugResetStyles firebugLayoutBox"><div style="padding: 0px ! important; background-color: rgb(68, 68, 68) ! important;" class="firebugResetStyles firebugLayoutBox"><div style="padding: 0px ! important; background-color: SlateBlue ! important;" class="firebugResetStyles firebugLayoutBox"><div style="width: 1425px ! important; height: 0px ! important; background-color: SkyBlue ! important;" class="firebugResetStyles firebugLayoutBox"></div></div></div></div></div>

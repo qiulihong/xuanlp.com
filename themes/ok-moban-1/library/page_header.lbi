@@ -1,0 +1,57 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<SCRIPT language=javascript type=text/javascript>
+      function topMenuItem_onmouseover(sender) {
+         sender.className = 'top_menu_hover'
+      }
+      function topMenuItem_onmouseout(sender) {
+         sender.className = 'top_menu_normal'
+      } 
+</SCRIPT>
+<DIV class=product_top_xg id=top>
+<DIV class="product_top_in block" id=ctl00_notLogin style="DISPLAY: block">
+<UL>
+  <LI>{insert_scripts files='transport.js,utils.js'}
+   <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font></LI>
+  <LI class=product_top_xg_a_bj><SPAN><A href="user.php" target="_blank">我的账户</A></SPAN> </LI>
+  <LI class=product_top_xg_a_bj><SPAN><A href="article_cat.php?id=3" target="_blank">帮助中心</A></SPAN> </LI></UL></DIV>
+</DIV>
+
+<DIV class=product_wrapper>
+<DIV class=product_head><A title=首页 href="../index.php"><IMG class=fl src="images/logo.gif"></A> 
+<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+<DIV class="product_head_search fr" >
+<SPAN class=fl><INPUT class=fltext id=txtKeyWord onClick="if(this.value=='请输入关键字') this.value=''" value=请输入关键字 name=keywords><input type="image" name="imageField" src="images/product_head_search_bnt_72x29.gif" style=" position:relative; *top:-2px;_top:0px; left:-3px;">
+</SPAN> 
+<DIV class=fr style="MARGIN-TOP: -23px;"><DIV>
+<DIV class=fr><IMG alt=客服电话 src="images/KEteltu1.jpg" height="60" width="200"></DIV></DIV>
+</DIV></DIV>
+</form>
+</DIV>
+
+<DIV class=product_head_mainnav>
+<UL>
+  <LI  {if $navigator_list.config.index eq 1} class="top_menu_hover" {else} class="top_menu_normal" onmouseover="topMenuItem_onmouseover(this);" onmouseout="topMenuItem_onmouseout(this);"{/if} ><A class=comm_menu_item  href="../index.php">首页</A> </LI>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav } -->
+  <!--{if $smarty.foreach.nav_middle_list.iteration <= 4 }-->
+  <LI {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="top_menu_hover" {else} class="top_menu_normal" onmouseover="topMenuItem_onmouseover(this);" onmouseout="topMenuItem_onmouseout(this);"{/if}><A class=comm_menu_item href="{$nav.url}" >{$nav.name}</A> 
+  </LI>
+  <!--{/if}-->
+ <!-- {/foreach} -->
+  
+  </UL>
+{insert_scripts files='transport.js'}
+<DIV class=product_head_mainnav_shopping id=shopping>
+<DIV class=fl>{insert name='cart_info'}</DIV>
+<DIV class=fr style="MARGIN-TOP: 1px; MARGIN-RIGHT: 35px;_MARGIN-RIGHT: 15px"><a href="flow.php" target="_blank">去结算</A></DIV></DIV></DIV>
+
+<DIV class="product_head_nav blue" style="overflow:hidden;">
+<UL>
+<LI style=" width:auto;">热搜：</LI> 
+{foreach from=$searchkeywords item=val}<LI style=" width:auto;"><a href="search.php?keywords={$val|escape:url}">{$val}</a> </LI>{/foreach}
+
+</UL></DIV>
+
+</DIV>

@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js,transport.js'}
+</head>
+<body>
+<div id="globalWrapper">
+	<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+		<div id="page-header">
+			<div class="headerline"><p></p></div>
+			<div class="headerbody">
+				<p class="logo"><a href="../index.php" name="top"><img src="../images/logo.gif" alt="shopping mall name" width="130" height="56" border="0" /></a></p>
+				<p class="menu">
+					<span class="corgreyl"></span>
+					<span class="corgreyc">
+					<!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+						<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+						<!-- {if !$smarty.foreach.nav_top_list.last} -->|<!-- {/if} -->
+					<!-- {/foreach} -->
+					</span>
+					<span class="corgreyr"></span>
+				</p>
+			</div>
+		</div>
+		<div class="searchblock">
+			<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+				<select name="category" id="category">
+					<option value="0">{$lang.all_category}</option>
+					{$category_list}
+				</select>
+				<input name="keywords" class="textbox" type="text" id="keyword" value="{$search_keywords|escape}" />
+				<input type="submit" value="搜索" class="shortbtn" />
+				<input type="button" value="{$lang.advanced_search}" onclick="window.location.href='search.php?act=advanced_search'" class="longbtn" />
+			</form>
+		</div>
+		{if $searchkeywords}
+		<div style="padding:0 15px;text-align: right;">
+		{foreach from=$searchkeywords item=val}
+		 <a href="search.php?keywords={$val|escape}">{$val}</a>
+		{/foreach}
+		</div>
+		{/if}
+		<script type="text/javascript">
+		{literal}
+		<!--
+		function checkSearchForm()
+		{
+		    if(document.getElementById('keyword').value)
+		    {
+		        return true;
+		    }
+		    else
+		    {
+		        return false;
+		    }
+		}
+		-->
+		{/literal}
+		</script>
+		<div id="cell-nav">
+			<div class="ctrlwidthbox">
+				<ul>
+					<li><a href="../index.php">{$lang.home}</a><!-- {if $navigator_list.config.index eq 1} --><!-- {/if} --></li>
+					<!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+						<!-- {if $smarty.foreach.nav_middle_list.last}-->
+							<li style="border-right:0px;"><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+						<!-- {else} -->
+							<li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+						<!-- {/if} -->
+						<!-- {if $nav.active eq 1} -->
+						<!-- {/if} -->
+					<!-- {/foreach} -->
+				</ul>
+				<div class="navnote"><em>400-700-2121</em> 全国订购及咨询服务热线</div>
+			</div>
+		</div>
+		<div id="ECS_CATALOG" class="catalog-div" style="display:none"
+		onMouseOver="if (this.style.display != 'block') this.style.display='block';"
+		onMouseOut="if (this.style.display != 'none') this.style.display = 'none';">
+		  <ul>
+		    <!--{assign var="level" value=0}-->
+		    <!-- {foreach from=$catalog_list item=cat} -->
+		    <!-- {if $level > $cat.level} -->
+		  </ul>
+		  <!-- {/if}-->
+		  <!-- {if $level < $cat.level} -->
+		  <ul>
+		  <!-- {/if} -->
+		    <li class="{if $cat.level eq 0}top-cate{else}snd-cate{/if}"><a href="{$cat.url}" title="{if $cat.cat_desc neq ''}{$cat.cat_desc}{/if}">{$cat.cat_name}</a></li>
+		    <!--{assign var="level" value=$cat.level}-->
+		    <!-- {/foreach} -->
+		  </ul>
+		</div>
+	<!-- #EndLibraryItem -->
+	<!-- TemplateBeginEditable name="通栏广告位" -->
+	<!-- TemplateEndEditable -->
+	<div class="ctrlwidthbox2">
+		<!--#登录界面-->
+			<!-- {if $action eq 'login'} -->
+			<div class="title-div2"><h3>会员登录</h3></div>
+			<form name="formLogin" action="user.php" method="post" onSubmit="return userLogin()">
+			<br />
+			<table width="100%" border="0" align="left" cellpadding="4">
+			  <tr>
+			    <td width="41%" align="right"><strong>{$lang.label_username}　</strong></td>
+			    <td width="59%"><input name="username" type="text" size="25" /></td>
+			  </tr>
+			  <tr>
+			    <td align="right"><strong>{$lang.label_password}　</strong></td>
+			    <td><input name="password" type="password" size="25" /></td>
+			  </tr>
+			  <!-- 判断是否启用验证码{if $enabled_captcha} -->
+			  <tr>
+			    <td align="right"><strong>{$lang.comment_captcha}:</strong></td>
+			    <td><input type="text" size="8" name="captcha" />
+			    <img src="captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='captcha.php?'+Math.random()" /> </td>
+			  </tr>
+			  <!--{/if}-->
+			  <tr>
+			    <td>&nbsp;</td>
+			    <td><input type="hidden" name="act" value="act_login" />
+			      <input type="hidden" name="back_act" value="{$back_act}" />
+			      <input type="submit" name="submit" value="{$lang.confirm_login}" class="longbtn" /></td>
+			  </tr>
+			  <tr>
+			    <td colspan="2">&nbsp;</td>
+			  </tr>
+			  <tr>
+			    <td>&nbsp;</td>
+			    <td><p class="logina"> <a href="user.php?act=register">{$lang.sign_up}</a></p>
+			      <p class="logina"> <a href="user.php?act=get_password">{$lang.forgot_password}</a></p></td>
+			  </tr>
+			</table>
+			<br />
+			</form>
+			<div class="clear"></div>
+			<!--{/if}-->
+		<!--#登录界面-->
+		<!--*会员注册界面 start-->
+    <!--{if $action eq 'register'}-->
+    <!-- {if $shop_reg_closed eq 1} -->
+    <div style="padding:50px 0px; text-align:center; color:#ff0000; font-weight:bold; border:1px solid #ccc; margin:0 auto 0 125px; width:990px;">
+		{$lang.shop_register_closed}
+     </div>
+		<!--{else}-->
+			{insert_scripts files='utils.js'}
+			<div class="title-div2"><h3>会员注册</h3></div>
+			<form action="user.php" method="post" name="formUser" onsubmit="return register();">
+				<br />
+				<table width="70%"  border="0" align="center" cellpadding="4">
+					<tr>
+					  <td width="43%" align="right"><strong>{$lang.label_username}:</strong></td>
+					  <td width="57%"><input name="username" type="text" id="username" />
+					    <span style="color:#FF0000"> *</span></td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.label_email}:</strong></td>
+					  <td><input name="email" type="text" id="email" />
+					    <span style="color:#FF0000"> *</span></td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.label_password}:</strong></td>
+					  <td><input name="password" type="password" id="password" onkeyup="checkIntensity(this.value)" />
+					    <span style="color:#FF0000"> *</span></td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>密码强度:</strong></td>
+					  <td>
+					    <table width="145" border="0" cellspacing="0" cellpadding="1">
+					      <tr align="center">
+					        <td width="33%" id="pwd_lower">{$lang.pwd_lower}</td>
+					        <td width="33%" id="pwd_middle">{$lang.pwd_middle}</td>
+					        <td width="33%" id="pwd_high">{$lang.pwd_high}</td>
+					      </tr>
+					    </table>
+					  </td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.label_confirm_password}:</strong></td>
+					  <td><input name="confirm_password" type="password" id="conform_password" />
+					    <span style="color:#FF0000"> *</span></td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.other_msn}:</strong></td>
+					  <td><input name="other[msn]" type="text" />
+					   </td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.other_qq}:</strong></td>
+					  <td><input name="other[qq]" type="text"  />
+					   </td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.other_office_phone}:</strong></td>
+					  <td><input name="other[office_phone]" type="text"  />
+					   </td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.other_home_phone}:</strong></td>
+					  <td><input name="other[home_phone]" type="text"  />
+					  </td>
+					</tr>
+					<tr>
+					  <td align="right"><strong>{$lang.other_mobile_phone}:</strong></td>
+					  <td><input name="other[mobile_phone]" type="text"  />
+					   </td>
+					</tr>
+					<!-- 判断是否启用验证码{if $enabled_captcha} -->
+					<tr>
+					<td align="right"><strong>{$lang.comment_captcha}:</strong></td>
+					<td><input type="text" size="8" name="captcha" />
+					<img src="captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='captcha.php?'+Math.random()" /> </td>
+					</tr>
+					<!--{/if}-->
+					<tr>
+					  <td>&nbsp;</td>
+					  <td><label>
+					    <input name="agreement" type="checkbox" value="1" checked="checked" />
+					    <b>{$lang.agreement}</b></label></td>
+					</tr>
+					<tr>
+					  <td>&nbsp;</td>
+					  <td><input name="act" type="hidden" value="act_register" >
+					    <input name="Submit" type="submit" value="{$lang.confirm_register}" class="longbtn"></td>
+					</tr>
+					<tr>
+					  <td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+					  <td>&nbsp;</td>
+					  <td><p class="logina"> <a href="user.php?act=login">{$lang.want_login}</a></p>
+					    <p class="logina"> <a href="user.php?act=get_password">{$lang.forgot_password}</a></p></td>
+					</tr>
+				</table>
+				<br />
+			</form>
+			<!--{/if}-->
+			<!--{/if}-->
+		<!--#会员注册界面-->
+		<!--*找回密码界面 -->
+			<!--{if $action eq 'get_password'} -->
+				{insert_scripts files='utils.js'}
+				<script type="text/javascript">
+				{foreach from=$lang.password_js item=item key=key}
+				  var {$key} = "{$item}";
+				{/foreach}
+				</script>
+				<div class="title-div2"><h3>找回密码</h3></div>
+				<form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+					<br />
+					<table width="70%" border="0" align="center" cellpadding="4">
+					  <tr>
+					    <td colspan="2" align="center"><strong>{$lang.username_and_email}</strong></td>
+					  </tr>
+					  <tr>
+					    <td width="39%" align="right">{$lang.username}:</td>
+					    <td width="61%"><input name="user_name" type="text" size="30" /></td>
+					  </tr>
+					  <tr>
+					    <td align="right">{$lang.email}:</td>
+					    <td><input name="email" type="text" size="30" /></td>
+					  </tr>
+					  <tr>
+					    <td>&nbsp;</td>
+					    <td><input type="hidden" name="act" value="send_pwd_email" />
+					      <input type="submit" name="submit" value="{$lang.confirm_submit}" class="longbtn" />
+					      <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" class="longbtn" />            </td>
+					  </tr>
+					</table>
+					<br />
+				</form>
+			<!--{/if}-->
+		<!--#找回密码界面-->
+		<!-- {if $action eq 'reset_password'} -->
+			<script type="text/javascript">
+			{foreach from=$lang.password_js item=item key=key}
+			  var {$key} = "{$item}";
+			{/foreach}
+			</script>
+			<div class="title-div2"><h3>重置密码</h3></div>
+			<form action="user.php" method="post" name="getPassword2" onSubmit="return submitPwd()">
+			  <br />
+			  <table width="80%" border="0" align="center" cellpadding="4">
+			    <tr>
+			      <td align="right">{$lang.enter_new_password}:</td>
+			      <td><input name="new_password" type="password" size="25" /></td>
+			    </tr>
+			    <tr>
+			      <td align="right">{$lang.confirm_password}:</td>
+			      <td><input name="confirm_password" type="password" size="25" /></td>
+			    </tr>
+			    <tr>
+			      <td>&nbsp;</td>
+			      <td><input type="hidden" name="act" value="act_edit_password" />
+			        <input type="hidden" name="uid" value="{$uid}" />
+			        <input type="hidden" name="code" value="{$code}" />
+			        <input type="submit" name="submit" value="{$lang.confirm_submit}" class="longbtn" />          </td>
+			    </tr>
+			  </table>
+			  <br />
+			</form>
+		<!-- {/if} -->
+	</div>
+	<!-- #BeginLibraryItem "/library/help.lbi" -->
+		<!--{if $helps}-->
+		<div class="cart-div ctrlwidthbox1">
+			<table cellpadding="0" cellspacing="1" class="helpcat">
+				<tr>
+					<!-- {foreach from=$helps item=help_cat} -->
+					<td valign="top">{$help_cat.cat_name}
+						<ul>
+							<!-- {foreach from=$help_cat.article item=item} -->
+							<li><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></li>
+							<!-- {/foreach} -->
+						</ul>
+					</td>
+					<!-- {/foreach} -->
+				</tr>
+			</table>
+		</div>
+		<!--{/if}-->
+	<!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+		<div id="footer-table">
+			<div class="ctrlwidthbox">
+				<div class="footerlinks">
+				<!-- {if $navigator_list.bottom} -->
+					<!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+					<a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a> 
+					<!-- {if !$smarty.foreach.nav_bottom_list.last} -->|<!-- {/if} -->
+					<!-- {/foreach} -->
+				<!-- {/if} -->
+				</div>
+				<div>{$copyright}</div>
+				<div>{$shop_address} {$shop_postcode}</div>
+				<div>
+					<!-- 客服电话{if $service_phone} -->
+				      Tel: {$service_phone}
+				      <!-- 结束客服电话{/if} -->
+				      <!-- QQ 号码 {foreach from=$qq item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束QQ号码 -->
+				      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!--{/foreach} 结束淘宝旺旺 -->
+				      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+				      <!-- {if $im} -->
+				      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束Yahoo Messenger -->
+				      <!-- MSN Messenger {foreach from=$msn item=im} -->
+				      <!-- {if $im} -->
+				      <img src="../images/msn.gif" width="18" height="17" border="0" alt="MSN" /> {$im}
+				      <!-- {/if} -->
+				      <!-- {/foreach} 结束MSN Messenger -->
+				      <!-- Skype {foreach from=$skype item=im} -->
+				      <!-- {if $im} -->
+				      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+				      <!-- {/if} -->
+				      <!-- {/foreach} -->
+				</div>
+				<!-- ICP 证书{if $icp_number} -->
+				<p>{$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a></p>
+				<!-- 结束ICP 证书{/if} -->
+				<div>{insert name='query_info'}</div>
+				<div><a href="http://www.ecshop.com" target="_blank">Powered by <strong><span style="color:#c6005b">ECShop {$ecs_version}</span></strong></a></div>
+				{if $stats_code}
+				<div>{$stats_code}</div>
+				{/if}
+				<script type="text/javascript">
+				var process_request = "{$lang.process_request}";
+				</script>
+			</div>
+		</div>
+	<!-- #EndLibraryItem -->
+</div><!-- End #globalWrapper -->
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+{foreach from=$lang.passport_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var username_exist = "{$lang.username_exist}";
+</script>
+</body>
+</html>

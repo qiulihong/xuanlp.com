@@ -1,0 +1,12 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_list} -->
+<!-- 分类 -->
+<div class="title-div"><h3>商品分类</h3></div>
+<div class="cart-div">
+  <ul class="article-list1">
+    <!-- {foreach from=$cat_list item=cat} -->
+    <li><a href="{$cat.url}">{$cat.cat_name|escape:html} {if $cat.goods_num}({$cat.goods_num}){/if}</a></li>
+    <!-- {/foreach} -->
+  </ul>
+</div>
+<!-- {/if} -->

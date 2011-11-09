@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+function chg(id){
+	var str= "a"+id
+	var oa = document.getElementById(id);
+	var ob = document.getElementById(str);
+	if(oa){
+		if(oa.style.display == "block"){
+			oa.style.display = "none";
+			ob.innerHTML = "<em>+<\/em>";
+		}else{
+			oa.style.display = "block";
+			ob.innerHTML = "<em>-<\/em>";
+		}
+	}
+	return false;
+}
+</script>
+<div class="title-div"><h3>商品分类</h3></div>
+<div id="cat-div" style="padding:5px 10px;">
+<ul>
+	<!--{foreach name=parent-cat from=$categories item=cat}-->
+	<li>
+		<div class="parent-cat"><a href="#" id="acat{$smarty.foreach.parent-cat.iteration}" onclick="return chg('cat{$smarty.foreach.parent-cat.iteration}');"><em><!--{if $cat.children}-->+<!--{else}-->-<!--{/if}--></em></a><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+		<!--{if $cat.children}-->
+			<div class="child-cat" id="cat{$smarty.foreach.parent-cat.iteration}" style="display:none;"><!--{foreach from=$cat.children item=child}-->
+				<a href="{$child.url}">{$child.name|escape:html}</a>
+			<!--{/foreach}--></div>
+		<!--{/if}-->
+	</li>
+	<!--{/foreach}-->
+</ul>
+</div>
