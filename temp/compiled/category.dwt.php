@@ -30,9 +30,8 @@
   
   <div class="AreaL">
     
-<?php echo $this->fetch('library/cart.lbi'); ?>
 <?php echo $this->fetch('library/category_tree.lbi'); ?>
- <?php echo $this->fetch('library/history.lbi'); ?>
+<?php echo $this->fetch('library/history.lbi'); ?>
 
 
 
@@ -74,12 +73,12 @@
 			<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 			</div>
 			<?php endif; ?>
-			<?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_08580300_1320793679');if (count($_from)):
-    foreach ($_from AS $this->_var['filter_attr_0_08580300_1320793679']):
+			<?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_81257000_1320922041');if (count($_from)):
+    foreach ($_from AS $this->_var['filter_attr_0_81257000_1320922041']):
 ?>
       <div class="screeBox">
-			<strong><?php echo htmlspecialchars($this->_var['filter_attr_0_08580300_1320793679']['filter_attr_name']); ?> :</strong>
-			<?php $_from = $this->_var['filter_attr_0_08580300_1320793679']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
+			<strong><?php echo htmlspecialchars($this->_var['filter_attr_0_81257000_1320922041']['filter_attr_name']); ?> :</strong>
+			<?php $_from = $this->_var['filter_attr_0_81257000_1320922041']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
     foreach ($_from AS $this->_var['attr']):
 ?>
 				<?php if ($this->_var['attr']['selected']): ?>
@@ -97,8 +96,8 @@
 	 
    
 <?php echo $this->fetch('library/recommend_best.lbi'); ?>
-  <?php echo $this->fetch('library/goods_list.lbi'); ?>
-  <?php echo $this->fetch('library/pages.lbi'); ?>
+<?php echo $this->fetch('library/goods_list.lbi'); ?>
+<?php echo $this->fetch('library/pages.lbi'); ?>
 
 
 

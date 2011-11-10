@@ -1,4 +1,3 @@
-</div>
 <div id="foot">
   <div id="footer">
     <div id="phone"><a target="_blank" href="http://www.quwan.com/article-29.html"><img src="themes/default/images/public_bg.gif"></a></div>
@@ -10,13 +9,13 @@ if ($this->_foreach['no']['total'] > 0):
         $this->_foreach['no']['iteration']++;
 ?>
 <dl  class="help" <?php if (! ($this->_foreach['no']['iteration'] == $this->_foreach['no']['total'])): ?>
-             style="border-right:1px solid #ccc;"  
+             style=""  
             <?php endif; ?>        >
   <dt><span class="help_<?php echo $this->_foreach['no']['iteration']; ?>"><?php echo $this->_var['help_cat']['cat_name']; ?></span></dt>
-  <?php $_from = $this->_var['help_cat']['article']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'item_0_41220900_1320792871');if (count($_from)):
-    foreach ($_from AS $this->_var['item_0_41220900_1320792871']):
+  <?php $_from = $this->_var['help_cat']['article']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['item']):
 ?>
-  <dd><a href="<?php echo $this->_var['item_0_41220900_1320792871']['url']; ?>" title="<?php echo htmlspecialchars($this->_var['item_0_41220900_1320792871']['title']); ?>"><?php echo $this->_var['item_0_41220900_1320792871']['short_title']; ?></a></dd>
+  <dd><a href="<?php echo $this->_var['item']['url']; ?>" title="<?php echo htmlspecialchars($this->_var['item']['title']); ?>"><?php echo $this->_var['item']['short_title']; ?></a></dd>
   <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 </dl>
 <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
@@ -25,10 +24,6 @@ if ($this->_foreach['no']['total'] > 0):
       <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <dl class="guarantee">
-      <dt></dt>
-      <dd><a class="guar_1"></a><a class="guar_2"></a><a class="guar_3"></a></dd>
-    </dl>
       <div class="clear"></div>
     </div>
 

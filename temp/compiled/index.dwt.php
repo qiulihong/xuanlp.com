@@ -321,8 +321,9 @@ if ($this->_foreach['top_goods']['total'] > 0):
 <?php $this->assign('cat_goods',$this->_var['cat_goods_1']); ?><?php $this->assign('goods_cat',$this->_var['goods_cat_1']); ?><?php echo $this->fetch('library/cat_goods.lbi'); ?>
 <?php $this->assign('cat_goods',$this->_var['cat_goods_6']); ?><?php $this->assign('goods_cat',$this->_var['goods_cat_6']); ?><?php echo $this->fetch('library/cat_goods.lbi'); ?>
 
-      
+     <div class="helpTitBg"> 
 <?php echo $this->fetch('library/help.lbi'); ?>
 <?php echo $this->fetch('library/page_footer.lbi'); ?>
+		</div>
       		
 </body></html>

@@ -143,13 +143,13 @@ a.red:hover { color:#c90809;}
 .top_ad { height:auto;margin-bottom:15px; overflow:hidden;}
 	.top_ad img { width:960px;}
 /*“≥√ÊÕ®”√“≥Ω≈css*/		
-#foot{margin: 0px auto;width: 100%; height:auto; color:#000000;background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) repeat-x 0 -273px;background-color:#fafafa; margin-top:15px; }		
+#foot{margin: 0px auto;width: 100%; height:auto; color:#000000;/*background:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif) repeat-x 0 -273px;*/background-color:#fafafa; margin-top:15px; }		
 	#footer { margin: 0px auto; width: 960px; padding-top:25px; height:auto;}
 		#phone { float:left; width:166px;height:113px; position:relative; overflow:hidden;}
 			#phone img { position:absolute;  top:-160px; left:0px;}
 		#help_box {float:right;  width:794px; height:130px; }		
 		.help { float:left;width:137px; padding-left:21px; height:117px;}
-		.help dt {height:22px; border-bottom:1px solid #dddddd; margin-bottom:5px;}
+		.help dt {height:22px; /*border-bottom:1px solid #dddddd;*/ margin-bottom:5px;}
 			.help dt span { background-image:url(http://i1.quwan.com/themes/default/imgs/global/public_bg.gif); background-repeat:no-repeat; display:inline-block; height:17px; }
 			.help1 {width:65px; background-position:2px -50px; margin-left:8px;}
 			.help2 {width:65px; background-position:-62px -50px;margin-left:8px;}
@@ -207,3 +207,10 @@ filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMe
 	.page_box font { font-size:12px;padding:0 5px;}
 	.page_box b { font-weight:normal; color:#cc0809;}
 	#page_on { border:1px solid #ca0809; background-color:#fff9eb; color:#ca0809;padding:0 9px;}
+
+.helpTitBg dd a {
+    background: url("images/bg.gif") no-repeat scroll 0 -170px transparent;
+    color: #006ACD;
+    padding: 0 0 0 10px;
+    text-decoration: none;
+}

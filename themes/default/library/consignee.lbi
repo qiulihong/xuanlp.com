@@ -1,11 +1,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+tr {height: 25px; }
+</style>
 <div class="flowBox">
 <h6><span>{$lang.consignee_info}</span></h6>
 {insert_scripts files='utils.js,transport.js'}
-<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" >
   <!-- {if $real_goods_count gt 0} -->
   <!-- 购物车中存在实体商品显示国家和地区 -->
-  <tr>
+  <tr style="">
     <td bgcolor="#ffffff">{$lang.country_province}:</td>
     <td colspan="3" bgcolor="#ffffff">
     <select name="country" id="selCountries_{$sn}" onchange="region.changed(this, 1, 'selProvinces_{$sn}')" style="border:1px solid #ccc;">

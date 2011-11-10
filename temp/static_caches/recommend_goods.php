@@ -320,185 +320,190 @@ $data = array (
   array (
     0 => 
     array (
-      'goods_id' => '120',
+      'goods_id' => '138',
       'sort_order' => '100',
     ),
     1 => 
     array (
-      'goods_id' => '115',
+      'goods_id' => '120',
       'sort_order' => '100',
     ),
     2 => 
     array (
-      'goods_id' => '112',
+      'goods_id' => '115',
       'sort_order' => '100',
     ),
     3 => 
     array (
-      'goods_id' => '106',
+      'goods_id' => '112',
       'sort_order' => '100',
     ),
     4 => 
     array (
-      'goods_id' => '98',
+      'goods_id' => '106',
       'sort_order' => '100',
     ),
     5 => 
     array (
-      'goods_id' => '96',
+      'goods_id' => '98',
       'sort_order' => '100',
     ),
     6 => 
     array (
-      'goods_id' => '95',
+      'goods_id' => '96',
       'sort_order' => '100',
     ),
     7 => 
     array (
-      'goods_id' => '94',
+      'goods_id' => '95',
       'sort_order' => '100',
     ),
     8 => 
     array (
-      'goods_id' => '93',
+      'goods_id' => '94',
       'sort_order' => '100',
     ),
     9 => 
     array (
-      'goods_id' => '92',
+      'goods_id' => '93',
       'sort_order' => '100',
     ),
     10 => 
     array (
-      'goods_id' => '91',
+      'goods_id' => '92',
       'sort_order' => '100',
     ),
     11 => 
     array (
-      'goods_id' => '89',
+      'goods_id' => '91',
       'sort_order' => '100',
     ),
     12 => 
     array (
-      'goods_id' => '88',
+      'goods_id' => '89',
       'sort_order' => '100',
     ),
     13 => 
     array (
-      'goods_id' => '87',
+      'goods_id' => '88',
       'sort_order' => '100',
     ),
     14 => 
     array (
-      'goods_id' => '86',
+      'goods_id' => '87',
       'sort_order' => '100',
     ),
     15 => 
     array (
-      'goods_id' => '85',
+      'goods_id' => '86',
       'sort_order' => '100',
     ),
     16 => 
     array (
-      'goods_id' => '82',
+      'goods_id' => '85',
       'sort_order' => '100',
     ),
     17 => 
     array (
-      'goods_id' => '77',
+      'goods_id' => '82',
       'sort_order' => '100',
     ),
     18 => 
     array (
-      'goods_id' => '75',
+      'goods_id' => '77',
       'sort_order' => '100',
     ),
     19 => 
     array (
-      'goods_id' => '71',
+      'goods_id' => '75',
       'sort_order' => '100',
     ),
     20 => 
     array (
-      'goods_id' => '69',
+      'goods_id' => '71',
       'sort_order' => '100',
     ),
     21 => 
     array (
-      'goods_id' => '67',
+      'goods_id' => '69',
       'sort_order' => '100',
     ),
     22 => 
     array (
-      'goods_id' => '62',
+      'goods_id' => '67',
       'sort_order' => '100',
     ),
     23 => 
     array (
-      'goods_id' => '60',
+      'goods_id' => '62',
       'sort_order' => '100',
     ),
     24 => 
     array (
-      'goods_id' => '58',
+      'goods_id' => '60',
       'sort_order' => '100',
     ),
     25 => 
     array (
-      'goods_id' => '56',
+      'goods_id' => '58',
       'sort_order' => '100',
     ),
     26 => 
     array (
-      'goods_id' => '55',
+      'goods_id' => '56',
       'sort_order' => '100',
     ),
     27 => 
     array (
-      'goods_id' => '54',
+      'goods_id' => '55',
       'sort_order' => '100',
     ),
     28 => 
     array (
-      'goods_id' => '53',
+      'goods_id' => '54',
       'sort_order' => '100',
     ),
     29 => 
     array (
-      'goods_id' => '52',
+      'goods_id' => '53',
       'sort_order' => '100',
     ),
     30 => 
     array (
-      'goods_id' => '50',
+      'goods_id' => '52',
       'sort_order' => '100',
     ),
     31 => 
     array (
-      'goods_id' => '49',
+      'goods_id' => '50',
       'sort_order' => '100',
     ),
     32 => 
     array (
-      'goods_id' => '48',
+      'goods_id' => '49',
       'sort_order' => '100',
     ),
     33 => 
     array (
-      'goods_id' => '47',
+      'goods_id' => '48',
       'sort_order' => '100',
     ),
     34 => 
     array (
-      'goods_id' => '38',
+      'goods_id' => '47',
       'sort_order' => '100',
     ),
     35 => 
     array (
-      'goods_id' => '36',
+      'goods_id' => '38',
       'sort_order' => '100',
     ),
     36 => 
+    array (
+      'goods_id' => '36',
+      'sort_order' => '100',
+    ),
+    37 => 
     array (
       'goods_id' => '34',
       'sort_order' => '100',
@@ -506,6 +511,7 @@ $data = array (
   ),
   'brand' => 
   array (
+    138 => '海尔',
     65 => '海尔',
     127 => '三洋',
     120 => '爱彼此',

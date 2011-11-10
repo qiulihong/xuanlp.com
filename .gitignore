@@ -1,3 +1,4 @@
 *.zip
 temp/caches/*
+temp/query_caches/*
 !.gitignore
