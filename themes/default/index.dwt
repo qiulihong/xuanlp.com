@@ -178,7 +178,7 @@ html {filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);}
   <dl class="rush">
   	<dt>本周特价</td>
 	<dd>
-		<img src="./images/promotion/promotion-07112011.jpg" style="height:341px;"/>
+		<img src="./images/promotion/promotion-07112011.jpg" style="height:341px;width:260px;"/>
 	</dd>
   </dl>
   <dl class="notice"><!-- 公告-->
