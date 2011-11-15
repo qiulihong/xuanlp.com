@@ -26,15 +26,6 @@
 <div class="block clearfix">
   <!--left start-->
   <div class="AreaL">
-<!-- #BeginLibraryItem "/library/cart.lbi" -->
-
-{insert_scripts files='transport.js'}
-<div class="cart" id="ECS_CARTINFO">
- {insert name='cart_info2'}
-</div>
-<div class="blank5"></div>
-
- <!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/category_tree.lbi" -->
 
 <div class="box">
@@ -98,7 +89,8 @@
      <div class="box_1">
       <div style="border:4px solid #fcf8f7; background-color:#fff; padding:20px 15px;">
          <div class="tc" style="padding:8px;">
-         <font class="f5 f6">{$article.title|escape:html}</font><br /><font class="f3">{$article.author|escape:html} / {$article.add_time}</font>
+         <h2 class="article_title">{$article.title|escape:html}</h2><!--<br /><font class="f3">{$article.author|escape:html} / {$article.add_time}</font>//-->
+         <div style="padding:8px; margin:10px 0; text-align:left; border-top:1px solid #ccc;">&nbsp;</div>
          </div>
          <!-- {if $article.content } -->
           {$article.content}
@@ -106,6 +98,7 @@
          {if $article.open_type eq 2 or $article.open_type eq 1}<br />
          <div><a href="{$article.file_url}" target="_blank">{$lang.relative_file}</a></div>
           {/if}
+         <!--
          <div style="padding:8px; margin-top:15px; text-align:left; border-top:1px solid #ccc;">
          <!-- 上一篇文章 -->
           {if $next_article}
@@ -115,22 +108,17 @@
           {if $prev_article}
             {$lang.prev_article}:<a href="{$prev_article.url}" class="f6">{$prev_article.title}</a>
           {/if}
+          //-->
          </div>
       </div>
     </div>
   </div>
   <div class="blank"></div>
-  <!-- #BeginLibraryItem "/library/comments.lbi" -->
-{insert_scripts files='transport.js,utils.js'}
-<div id="ECS_COMMENT"> {* ECSHOP 提醒您：动态载入comments_list.lbi，显示评论列表和评论表单 *}{insert name='comments' type=$type id=$id}</div>
-<!-- #EndLibraryItem -->
-
-  </div>
   <!--right end-->
 </div>
 <div class="blank5"></div>
 <!--帮助-->
-<div class="block">
+<div class="block" style="margin:0 auto;">
   <div class="box">
    <div class="helpTitBg clearfix">
     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->

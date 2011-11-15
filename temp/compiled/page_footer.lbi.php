@@ -3,12 +3,12 @@
 <div id="links" class="box">
 <?php echo $this->_var['copyright']; ?> <span>|</span>
    <?php if ($this->_var['navigator_list']['bottom']): ?>
-   <?php $_from = $this->_var['navigator_list']['bottom']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'nav_0_41563600_1320792871');$this->_foreach['nav_bottom_list'] = array('total' => count($_from), 'iteration' => 0);
+   <?php $_from = $this->_var['navigator_list']['bottom']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'nav_0_34781400_1321315244');$this->_foreach['nav_bottom_list'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['nav_bottom_list']['total'] > 0):
-    foreach ($_from AS $this->_var['nav_0_41563600_1320792871']):
+    foreach ($_from AS $this->_var['nav_0_34781400_1321315244']):
         $this->_foreach['nav_bottom_list']['iteration']++;
 ?>
-        <a href="<?php echo $this->_var['nav_0_41563600_1320792871']['url']; ?>" <?php if ($this->_var['nav_0_41563600_1320792871']['opennew'] == 1): ?> target="_blank" <?php endif; ?>><?php echo $this->_var['nav_0_41563600_1320792871']['name']; ?></a>
+        <a href="<?php echo $this->_var['nav_0_34781400_1321315244']['url']; ?>" <?php if ($this->_var['nav_0_34781400_1321315244']['opennew'] == 1): ?> target="_blank" <?php endif; ?>><?php echo $this->_var['nav_0_34781400_1321315244']['name']; ?></a>
         <?php if (! ($this->_foreach['nav_bottom_list']['iteration'] == $this->_foreach['nav_bottom_list']['total'])): ?>
            <span>|</span>
         <?php endif; ?>
@@ -20,7 +20,7 @@ if ($this->_foreach['nav_bottom_list']['total'] > 0):
 <div class="blank"></div>
 
 <div id="footer">
- <div class="text">
+ <!--div class="text">
  <?php echo $this->_var['shop_address']; ?> <?php echo $this->_var['shop_postcode']; ?>
  <?php if ($this->_var['service_phone']): ?>
       Tel: <?php echo $this->_var['service_phone']; ?>
@@ -70,17 +70,12 @@ if ($this->_foreach['nav_bottom_list']['total'] > 0):
   <?php if ($this->_var['icp_number']): ?>
   <?php echo $this->_var['lang']['icp_number']; ?>:<a href="http://www.miibeian.gov.cn/" target="_blank"><?php echo $this->_var['icp_number']; ?></a><br />
   <?php endif; ?>
-  <!--
-  <?php $_from = $this->_var['lang']['p_y']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'pv');if (count($_from)):
-    foreach ($_from AS $this->_var['pv']):
-?><?php echo $this->_var['pv']; ?><?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?><?php echo $this->_var['licensed']; ?><br />
-  //-->
        <!--div align="center" style="padding-bottom:5px;" ><a href=" http://www.ecmoban.com" target="_blank"><img src="themes/default/images/ecmoban.gif" alt="ECShop模板" /></a></div-->
        
        <div class="blank"></div>
        
  </div>
-</div>
+</div //-->
 
   <script src="themes/default/images/c.html" language="JavaScript" charset="gb2312"></script>
 </div>

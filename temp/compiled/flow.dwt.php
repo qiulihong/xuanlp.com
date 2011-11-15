@@ -37,20 +37,20 @@
   <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
   </script>
   <div class="flowBox">
-    <h6><span><?php echo $this->_var['lang']['goods_list']; ?></span></h6>
+    <h3><span><?php echo $this->_var['lang']['goods_list']; ?></span></h3>
         <form id="formCart" name="formCart" method="post" action="flow.php">
            <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <tr>
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['goods_name']; ?></th>
-      <?php if ($this->_var['show_goods_attribute'] == 1): ?>
+      		  <?php if ($this->_var['show_goods_attribute'] == 1): ?>
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['goods_attr']; ?></th>
               <?php endif; ?>
               <?php if ($this->_var['show_marketprice']): ?>
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['market_prices']; ?></th>
               <?php endif; ?>
-              <th bgcolor="#ffffff"><?php echo $this->_var['lang']['shop_prices']; ?></th>
+              <!-- no display 本店价 th bgcolor="#ffffff"><?php echo $this->_var['lang']['shop_prices']; ?></th //-->
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['number']; ?></th>
-              <th bgcolor="#ffffff"><?php echo $this->_var['lang']['subtotal']; ?></th>
+              <!-- th bgcolor="#ffffff"><?php echo $this->_var['lang']['subtotal']; ?></th -->
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['handle']; ?></th>
             </tr>
             <?php $_from = $this->_var['goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');if (count($_from)):
@@ -100,7 +100,7 @@
                 <?php echo $this->_var['goods']['goods_number']; ?>
                 <?php endif; ?>
               </td>
-              <td align="right" bgcolor="#ffffff"><?php echo $this->_var['goods']['subtotal']; ?></td>
+              <!-- no display subtotal td align="right" bgcolor="#ffffff"><?php echo $this->_var['goods']['subtotal']; ?></td //-->
               <td align="center" bgcolor="#ffffff">
                 <a href="javascript:if (confirm('<?php echo $this->_var['lang']['drop_goods_confirm']; ?>')) location.href='flow.php?step=drop_goods&amp;id=<?php echo $this->_var['goods']['rec_id']; ?>'; " class="f6"><?php echo $this->_var['lang']['drop']; ?></a>
                 <?php if ($_SESSION['user_id'] > 0 && $this->_var['goods']['extension_code'] != 'package_buy'): ?>
@@ -353,7 +353,7 @@
         var flow_no_shipping = "<?php echo $this->_var['lang']['flow_no_shipping']; ?>";
         </script>
         <div class="flowBox">
-        <h6><span><?php echo $this->_var['lang']['goods_list']; ?></span><?php if ($this->_var['allow_edit_cart']): ?><a href="flow.php" class="f6"><?php echo $this->_var['lang']['modify']; ?></a><?php endif; ?></h6>
+        <h3><span><?php echo $this->_var['lang']['goods_list']; ?></span><?php if ($this->_var['allow_edit_cart']): ?><a href="flow.php" class="f6"><?php echo $this->_var['lang']['modify']; ?></a><?php endif; ?></h3>
         <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <tr>
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['goods_name']; ?></th>
@@ -361,9 +361,9 @@
               <?php if ($this->_var['show_marketprice']): ?>
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['market_prices']; ?></th>
               <?php endif; ?>
-              <th bgcolor="#ffffff"><?php if ($this->_var['gb_deposit']): ?><?php echo $this->_var['lang']['deposit']; ?><?php else: ?><?php echo $this->_var['lang']['shop_prices']; ?><?php endif; ?></th>
+              <!--th bgcolor="#ffffff"><?php if ($this->_var['gb_deposit']): ?><?php echo $this->_var['lang']['deposit']; ?><?php else: ?><?php echo $this->_var['lang']['shop_prices']; ?><?php endif; ?></th-->
               <th bgcolor="#ffffff"><?php echo $this->_var['lang']['number']; ?></th>
-              <th bgcolor="#ffffff"><?php echo $this->_var['lang']['subtotal']; ?></th>
+              <!--th bgcolor="#ffffff"><?php echo $this->_var['lang']['subtotal']; ?></th//-->
             </tr>
             <?php $_from = $this->_var['goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');if (count($_from)):
     foreach ($_from AS $this->_var['goods']):
@@ -393,24 +393,24 @@
               <?php if ($this->_var['show_marketprice']): ?>
               <td align="right" bgcolor="#ffffff"><?php echo $this->_var['goods']['formated_market_price']; ?></td>
               <?php endif; ?>
-              <td bgcolor="#ffffff" align="right"><?php echo $this->_var['goods']['formated_goods_price']; ?></td>
+              <!--td bgcolor="#ffffff" align="right"><?php echo $this->_var['goods']['formated_goods_price']; ?></td//-->
               <td bgcolor="#ffffff" align="right"><?php echo $this->_var['goods']['goods_number']; ?></td>
-              <td bgcolor="#ffffff" align="right"><?php echo $this->_var['goods']['formated_subtotal']; ?></td>
+              <!--td bgcolor="#ffffff" align="right"><?php echo $this->_var['goods']['formated_subtotal']; ?></td //-->
             </tr>
             <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
             <?php if (! $this->_var['gb_deposit']): ?>
-            <tr>
+            <!--tr>
               <td bgcolor="#ffffff" colspan="7">
               <?php if ($this->_var['discount'] > 0): ?><?php echo $this->_var['your_discount']; ?><br /><?php endif; ?>
               <?php echo $this->_var['shopping_money']; ?><?php if ($this->_var['show_marketprice']): ?>，<?php echo $this->_var['market_price_desc']; ?><?php endif; ?>
               </td>
-            </tr>
+            </tr //-->
             <?php endif; ?>
           </table>
       </div>
       <div class="blank"></div>
       <div class="flowBox">
-      <h6><span><?php echo $this->_var['lang']['consignee_info']; ?></span><a href="flow.php?step=consignee" class="f6"><?php echo $this->_var['lang']['modify']; ?></a></h6>
+      <h3><span><?php echo $this->_var['lang']['consignee_info']; ?></span><a href="flow.php?step=consignee" class="f6"><?php echo $this->_var['lang']['modify']; ?></a></h3>
       <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <tr>
               <td bgcolor="#ffffff"><?php echo $this->_var['lang']['consignee_name']; ?>:</td>
@@ -444,7 +444,7 @@
       </div>
      <div class="blank"></div>
     <?php if ($this->_var['total']['real_goods_count'] != 0): ?>
-    <div class="flowBox">
+    <div class="flowBox" style="display:none;">
     <h6><span><?php echo $this->_var['lang']['shipping_method']; ?></span></h6>
     <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="shippingTable">
             <tr>
@@ -459,7 +459,7 @@
     foreach ($_from AS $this->_var['shipping']):
 ?>
             <tr>
-              <td bgcolor="#ffffff" valign="top"><input name="shipping" type="radio" value="<?php echo $this->_var['shipping']['shipping_id']; ?>" <?php if ($this->_var['order']['shipping_id'] == $this->_var['shipping']['shipping_id']): ?>checked="true"<?php endif; ?> supportCod="<?php echo $this->_var['shipping']['support_cod']; ?>" insure="<?php echo $this->_var['shipping']['insure']; ?>" onclick="selectShipping(this)" />
+              <td bgcolor="#ffffff" valign="top"><input name="shipping" type="radio" value="<?php echo $this->_var['shipping']['shipping_id']; ?>" <?php if ($this->_var['order']['shipping_id'] == $this->_var['shipping']['shipping_id']): ?>checked="true"<?php endif; ?> <?php if ($this->_var['shipping']['shipping_id'] == 8): ?>checked="true"<?php endif; ?> supportCod="<?php echo $this->_var['shipping']['support_cod']; ?>" insure="<?php echo $this->_var['shipping']['insure']; ?>" onclick="selectShipping(this)" />
               </td>
               <td bgcolor="#ffffff" valign="top"><strong><?php echo $this->_var['shipping']['shipping_name']; ?></strong></td>
               <td bgcolor="#ffffff" valign="top"><?php echo $this->_var['shipping']['shipping_desc']; ?></td>
@@ -480,7 +480,7 @@
         <input name = "shipping" type="radio" value = "-1" checked="checked"  style="display:none"/>
         <?php endif; ?>
     <?php if ($this->_var['is_exchange_goods'] != 1 || $this->_var['total']['real_goods_count'] != 0): ?>
-    <div class="flowBox">
+    <div class="flowBox" style="display:none;">
     <h6><span><?php echo $this->_var['lang']['payment_method']; ?></span></h6>
     <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="paymentTable">
             <tr>
@@ -494,7 +494,7 @@
 ?>
             
             <tr>
-              <td valign="top" bgcolor="#ffffff"><input type="radio" name="payment" value="<?php echo $this->_var['payment']['pay_id']; ?>" <?php if ($this->_var['order']['pay_id'] == $this->_var['payment']['pay_id']): ?>checked<?php endif; ?> isCod="<?php echo $this->_var['payment']['is_cod']; ?>" onclick="selectPayment(this)" <?php if ($this->_var['cod_disabled'] && $this->_var['payment']['is_cod'] == "1"): ?>disabled="true"<?php endif; ?>/></td>
+              <td valign="top" bgcolor="#ffffff"><input type="radio" name="payment" value="<?php echo $this->_var['payment']['pay_id']; ?>" <?php if ($this->_var['order']['pay_id'] == $this->_var['payment']['pay_id'] || $this->_var['payment']['pay_id'] == 3): ?>checked<?php endif; ?> isCod="<?php echo $this->_var['payment']['is_cod']; ?>" onclick="selectPayment(this)" <?php if ($this->_var['cod_disabled'] && $this->_var['payment']['is_cod'] == "1" && $this->_var['payment']['pay_id'] != 3): ?>disabled="true"<?php endif; ?>/></td>
               <td valign="top" bgcolor="#ffffff"><strong><?php echo $this->_var['payment']['pay_name']; ?></strong></td>
               <td valign="top" bgcolor="#ffffff"><?php echo $this->_var['payment']['pay_desc']; ?></td>
               <td align="right" bgcolor="#ffffff" valign="top"><?php echo $this->_var['payment']['format_pay_fee']; ?></td>
@@ -594,7 +594,7 @@
         <?php endif; ?>
 
       <div class="flowBox">
-    <h6><span><?php echo $this->_var['lang']['other_info']; ?></span></h6>
+    <h3><span><?php echo $this->_var['lang']['other_info']; ?></span></h3>
       <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <?php if ($this->_var['allow_use_surplus']): ?>
             <tr>
@@ -671,13 +671,15 @@
           </table>
     </div>
     <div class="blank"></div>
+    <!--
     <div class="flowBox">
-    <h6><span><?php echo $this->_var['lang']['fee_total']; ?></span></h6>
+    <h3><span><?php echo $this->_var['lang']['fee_total']; ?></span></h3>
           <?php echo $this->fetch('library/order_total.lbi'); ?>
-           <div align="center" style="margin:8px auto;">
-            <input type="image" src="themes/default/images/bnt_subOrder.gif" />
-            <input type="hidden" name="step" value="done" />
-            </div>
+    </div>
+    //-->
+   <div align="center" style="margin:8px auto;">
+    <input type="image" src="themes/default/images/bnt_subOrder.gif" />
+    <input type="hidden" name="step" value="done" />
     </div>
     </form>
         <?php endif; ?>
@@ -687,11 +689,13 @@
         <div class="flowBox" style="margin:30px auto 70px auto;">
          <h6 style="text-align:center; height:30px; line-height:30px;"><?php echo $this->_var['lang']['remember_order_number']; ?>: <font style="color:red"><?php echo $this->_var['order']['order_sn']; ?></font></h6>
           <table width="99%" align="center" border="0" cellpadding="15" cellspacing="0" bgcolor="#fff" style="border:1px solid #ddd; margin:20px auto;" >
+         	<!--
             <tr>
               <td align="center" bgcolor="#FFFFFF">
               <?php if ($this->_var['order']['shipping_name']): ?><?php echo $this->_var['lang']['select_shipping']; ?>: <strong><?php echo $this->_var['order']['shipping_name']; ?></strong>，<?php endif; ?><?php echo $this->_var['lang']['select_payment']; ?>: <strong><?php echo $this->_var['order']['pay_name']; ?></strong>。<?php echo $this->_var['lang']['order_amount']; ?>: <strong><?php echo $this->_var['total']['amount_formated']; ?></strong>
               </td>
             </tr>
+            //-->
             <tr>
               <td align="center" bgcolor="#FFFFFF"><?php echo $this->_var['order']['pay_desc']; ?></td>
             </tr>

@@ -30,6 +30,6 @@ define('AUTH_KEY', 'this is a key');
 
 define('OLD_AUTH_KEY', '');
 
-define('API_TIME', '2011-11-10 17:11:17');
+define('API_TIME', '2011-11-14 16:04:16');
 
 ?>

@@ -13,9 +13,9 @@
  * $Id: common.php 17119 2010-04-21 07:58:09Z liuhui $
 */
 
-$_LANG['app_name'] = 'ECSHOP';
-$_LANG['cp_home'] = 'ECSHOP 管理中心';
-$_LANG['copyright'] = '版权所有 &copy; 2005-2010 上海商派网络科技有限公司，并保留所有权利。';
+$_LANG['app_name'] = '选礼品';
+$_LANG['cp_home'] = '选礼品 管理中心';
+$_LANG['copyright'] = '版权所有 &copy; 2011 致志融合科技（北京）有限公司，并保留所有权利。';
 $_LANG['query_info'] = '共执行 %d 个查询，用时 %s 秒';
 $_LANG['memory_info'] = '，内存占用 %0.3f MB';
 $_LANG['gzip_enabled'] = '，Gzip 已启用';

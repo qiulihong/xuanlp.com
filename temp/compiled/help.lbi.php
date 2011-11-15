@@ -1,6 +1,6 @@
 <div id="foot">
   <div id="footer">
-    <div id="phone"><a target="_blank" href="http://www.quwan.com/article-29.html"><img src="themes/default/images/public_bg.gif"></a></div>
+    <div id="phone"><a target="_blank" href="http://www.xuanlp.com/article.php?id=41"><img src="themes/default/images/public_bg.gif"></a></div>
     <div id="help_box">
 <?php if ($this->_var['helps']): ?>
 <?php $_from = $this->_var['helps']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'help_cat');$this->_foreach['no'] = array('total' => count($_from), 'iteration' => 0);

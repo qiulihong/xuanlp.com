@@ -34,20 +34,20 @@
   {/foreach}
   </script>
   <div class="flowBox">
-    <h6><span>{$lang.goods_list}</span></h6>
+    <h3><span>{$lang.goods_list}</span></h3>
         <form id="formCart" name="formCart" method="post" action="flow.php">
            <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <tr>
               <th bgcolor="#ffffff">{$lang.goods_name}</th>
-      <!-- {if $show_goods_attribute eq 1} 显示商品属性 -->
+      		  <!-- {if $show_goods_attribute eq 1} 显示商品属性 -->
               <th bgcolor="#ffffff">{$lang.goods_attr}</th>
               <!-- {/if} -->
               <!-- {if $show_marketprice} 显示市场价 -->
               <th bgcolor="#ffffff">{$lang.market_prices}</th>
               <!-- {/if} -->
-              <th bgcolor="#ffffff">{$lang.shop_prices}</th>
+              <!-- no display 本店价 th bgcolor="#ffffff">{$lang.shop_prices}</th //-->
               <th bgcolor="#ffffff">{$lang.number}</th>
-              <th bgcolor="#ffffff">{$lang.subtotal}</th>
+              <!-- th bgcolor="#ffffff">{$lang.subtotal}</th -->
               <th bgcolor="#ffffff">{$lang.handle}</th>
             </tr>
             <!-- {foreach from=$goods_list item=goods} -->
@@ -93,7 +93,7 @@
                 {$goods.goods_number}
                 <!-- {/if} -->
               </td>
-              <td align="right" bgcolor="#ffffff">{$goods.subtotal}</td>
+              <!-- no display subtotal td align="right" bgcolor="#ffffff">{$goods.subtotal}</td //-->
               <td align="center" bgcolor="#ffffff">
                 <a href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; " class="f6">{$lang.drop}</a>
                 <!-- {if $smarty.session.user_id gt 0 && $goods.extension_code neq 'package_buy'} 如果登录了，可以加入收藏 -->
@@ -334,7 +334,7 @@
         var flow_no_shipping = "{$lang.flow_no_shipping}";
         </script>
         <div class="flowBox">
-        <h6><span>{$lang.goods_list}</span><!--{if $allow_edit_cart} --><a href="flow.php" class="f6">{$lang.modify}</a><!--{/if} --></h6>
+        <h3><span>{$lang.goods_list}</span><!--{if $allow_edit_cart} --><a href="flow.php" class="f6">{$lang.modify}</a><!--{/if} --></h3>
         <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <tr>
               <th bgcolor="#ffffff">{$lang.goods_name}</th>
@@ -342,9 +342,9 @@
               <!-- {if $show_marketprice} -->
               <th bgcolor="#ffffff">{$lang.market_prices}</th>
               <!-- {/if} -->
-              <th bgcolor="#ffffff">{if $gb_deposit}{$lang.deposit}{else}{$lang.shop_prices}{/if}</th>
+              <!--th bgcolor="#ffffff">{if $gb_deposit}{$lang.deposit}{else}{$lang.shop_prices}{/if}</th-->
               <th bgcolor="#ffffff">{$lang.number}</th>
-              <th bgcolor="#ffffff">{$lang.subtotal}</th>
+              <!--th bgcolor="#ffffff">{$lang.subtotal}</th//-->
             </tr>
             <!-- {foreach from=$goods_list item=goods} -->
             <tr>
@@ -370,24 +370,24 @@
               <!-- {if $show_marketprice} -->
               <td align="right" bgcolor="#ffffff">{$goods.formated_market_price}</td>
               <!-- {/if} -->
-              <td bgcolor="#ffffff" align="right">{$goods.formated_goods_price}</td>
+              <!--td bgcolor="#ffffff" align="right">{$goods.formated_goods_price}</td//-->
               <td bgcolor="#ffffff" align="right">{$goods.goods_number}</td>
-              <td bgcolor="#ffffff" align="right">{$goods.formated_subtotal}</td>
+              <!--td bgcolor="#ffffff" align="right">{$goods.formated_subtotal}</td //-->
             </tr>
             <!-- {/foreach} -->
             <!-- {if !$gb_deposit} 团购且有保证金时不显示 -->
-            <tr>
+            <!--tr>
               <td bgcolor="#ffffff" colspan="7">
               <!-- {if $discount gt 0} -->{$your_discount}<br /><!-- {/if} -->
               {$shopping_money}<!-- {if $show_marketprice} -->，{$market_price_desc}<!--{/if}-->
               </td>
-            </tr>
+            </tr //-->
             <!-- {/if} -->
           </table>
       </div>
       <div class="blank"></div>
       <div class="flowBox">
-      <h6><span>{$lang.consignee_info}</span><a href="flow.php?step=consignee" class="f6">{$lang.modify}</a></h6>
+      <h3><span>{$lang.consignee_info}</span><a href="flow.php?step=consignee" class="f6">{$lang.modify}</a></h3>
       <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <tr>
               <td bgcolor="#ffffff">{$lang.consignee_name}:</td>
@@ -421,7 +421,7 @@
       </div>
      <div class="blank"></div>
     <!--{if $total.real_goods_count neq 0}-->
-    <div class="flowBox">
+    <div class="flowBox" style="display:none;">
     <h6><span>{$lang.shipping_method}</span></h6>
     <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="shippingTable">
             <tr>
@@ -434,7 +434,7 @@
             </tr>
             <!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
             <tr>
-              <td bgcolor="#ffffff" valign="top"><input name="shipping" type="radio" value="{$shipping.shipping_id}" {if $order.shipping_id eq $shipping.shipping_id}checked="true"{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
+              <td bgcolor="#ffffff" valign="top"><input name="shipping" type="radio" value="{$shipping.shipping_id}" {if $order.shipping_id eq $shipping.shipping_id }checked="true"{/if} {if $shipping.shipping_id eq 8 }checked="true"{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
               </td>
               <td bgcolor="#ffffff" valign="top"><strong>{$shipping.shipping_name}</strong></td>
               <td bgcolor="#ffffff" valign="top">{$shipping.shipping_desc}</td>
@@ -455,7 +455,7 @@
         <input name = "shipping" type="radio" value = "-1" checked="checked"  style="display:none"/>
         <!--{/if}-->
     <!--{if $is_exchange_goods neq 1 || $total.real_goods_count neq 0}-->
-    <div class="flowBox">
+    <div class="flowBox" style="display:none;">
     <h6><span>{$lang.payment_method}</span></h6>
     <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="paymentTable">
             <tr>
@@ -467,7 +467,7 @@
             <!-- {foreach from=$payment_list item=payment} -->
             <!-- 循环支付方式 -->
             <tr>
-              <td valign="top" bgcolor="#ffffff"><input type="radio" name="payment" value="{$payment.pay_id}" {if $order.pay_id eq $payment.pay_id}checked{/if} isCod="{$payment.is_cod}" onclick="selectPayment(this)" {if $cod_disabled and $payment.is_cod eq "1"}disabled="true"{/if}/></td>
+              <td valign="top" bgcolor="#ffffff"><input type="radio" name="payment" value="{$payment.pay_id}" {if $order.pay_id eq $payment.pay_id || $payment.pay_id eq 3}checked{/if} isCod="{$payment.is_cod}" onclick="selectPayment(this)" {if $cod_disabled and $payment.is_cod eq "1" && $payment.pay_id != 3}disabled="true"{/if}/></td>
               <td valign="top" bgcolor="#ffffff"><strong>{$payment.pay_name}</strong></td>
               <td valign="top" bgcolor="#ffffff">{$payment.pay_desc}</td>
               <td align="right" bgcolor="#ffffff" valign="top">{$payment.format_pay_fee}</td>
@@ -518,7 +518,7 @@
              <div class="blank"></div>
           <!-- {/if} 是否使用包装 -->
 
-          <!-- {if $card_list} 是否有贺卡 -->
+          <!-- {if $card_list } 是否有贺卡 -->
           <div class="flowBox">
           <h6><span>{$lang.goods_card}</span></h6>
           <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd" id="cardTable">
@@ -563,7 +563,7 @@
         <!-- {/if} 是否使用贺卡 -->
 
       <div class="flowBox">
-    <h6><span>{$lang.other_info}</span></h6>
+    <h3><span>{$lang.other_info}</span></h3>
       <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
             <!-- {if $allow_use_surplus} 是否使用余额 -->
             <tr>
@@ -636,13 +636,15 @@
           </table>
     </div>
     <div class="blank"></div>
+    <!--
     <div class="flowBox">
-    <h6><span>{$lang.fee_total}</span></h6>
+    <h3><span>{$lang.fee_total}</span></h3>
           <!-- #BeginLibraryItem "/Library/order_total.lbi" --><!-- #EndLibraryItem -->
-           <div align="center" style="margin:8px auto;">
-            <input type="image" src="images/bnt_subOrder.gif" />
-            <input type="hidden" name="step" value="done" />
-            </div>
+    </div>
+    //-->
+   <div align="center" style="margin:8px auto;">
+    <input type="image" src="images/bnt_subOrder.gif" />
+    <input type="hidden" name="step" value="done" />
     </div>
     </form>
         <!-- {/if} -->
@@ -652,11 +654,13 @@
         <div class="flowBox" style="margin:30px auto 70px auto;">
          <h6 style="text-align:center; height:30px; line-height:30px;">{$lang.remember_order_number}: <font style="color:red">{$order.order_sn}</font></h6>
           <table width="99%" align="center" border="0" cellpadding="15" cellspacing="0" bgcolor="#fff" style="border:1px solid #ddd; margin:20px auto;" >
+         	<!--
             <tr>
               <td align="center" bgcolor="#FFFFFF">
               <!--{if $order.shipping_name}-->{$lang.select_shipping}: <strong>{$order.shipping_name}</strong>，<!--{/if}-->{$lang.select_payment}: <strong>{$order.pay_name}</strong>。{$lang.order_amount}: <strong>{$total.amount_formated}</strong>
               </td>
             </tr>
+            //-->
             <tr>
               <td align="center" bgcolor="#FFFFFF">{$order.pay_desc}</td>
             </tr>

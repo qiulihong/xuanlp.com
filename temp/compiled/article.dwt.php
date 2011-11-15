@@ -27,7 +27,6 @@
 <div class="block clearfix">
   
   <div class="AreaL">
-<?php echo $this->fetch('library/cart.lbi'); ?>
 <?php echo $this->fetch('library/category_tree.lbi'); ?>
  <?php echo $this->fetch('library/article_category_tree.lbi'); ?>
  <?php echo $this->fetch('library/filter_attr.lbi'); ?>
@@ -47,7 +46,8 @@
      <div class="box_1">
       <div style="border:4px solid #fcf8f7; background-color:#fff; padding:20px 15px;">
          <div class="tc" style="padding:8px;">
-         <font class="f5 f6"><?php echo htmlspecialchars($this->_var['article']['title']); ?></font><br /><font class="f3"><?php echo htmlspecialchars($this->_var['article']['author']); ?> / <?php echo $this->_var['article']['add_time']; ?></font>
+         <h2 class="article_title"><?php echo htmlspecialchars($this->_var['article']['title']); ?></h2><!--<br /><font class="f3"><?php echo htmlspecialchars($this->_var['article']['author']); ?> / <?php echo $this->_var['article']['add_time']; ?></font>//-->
+         <div style="padding:8px; margin:10px 0; text-align:left; border-top:1px solid #ccc;">&nbsp;</div>
          </div>
          <?php if ($this->_var['article']['content']): ?>
           <?php echo $this->_var['article']['content']; ?>
@@ -55,6 +55,7 @@
          <?php if ($this->_var['article']['open_type'] == 2 || $this->_var['article']['open_type'] == 1): ?><br />
          <div><a href="<?php echo $this->_var['article']['file_url']; ?>" target="_blank"><?php echo $this->_var['lang']['relative_file']; ?></a></div>
           <?php endif; ?>
+         <!--
          <div style="padding:8px; margin-top:15px; text-align:left; border-top:1px solid #ccc;">
          
           <?php if ($this->_var['next_article']): ?>
@@ -64,19 +65,17 @@
           <?php if ($this->_var['prev_article']): ?>
             <?php echo $this->_var['lang']['prev_article']; ?>:<a href="<?php echo $this->_var['prev_article']['url']; ?>" class="f6"><?php echo $this->_var['prev_article']['title']; ?></a>
           <?php endif; ?>
+          //-->
          </div>
       </div>
     </div>
   </div>
   <div class="blank"></div>
-  <?php echo $this->fetch('library/comments.lbi'); ?>
-
-  </div>
   
 </div>
 <div class="blank5"></div>
 
-<div class="block">
+<div class="block" style="margin:0 auto;">
   <div class="box">
    <div class="helpTitBg clearfix">
     <?php echo $this->fetch('library/help.lbi'); ?>

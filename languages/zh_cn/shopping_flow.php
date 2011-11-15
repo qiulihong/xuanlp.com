@@ -150,7 +150,7 @@ $_LANG['balance_not_enough'] = '您的余额不足以支付整个订单，请选
 $_LANG['select_shipping'] = '您选定的配送方式为';
 $_LANG['select_payment'] = '您选定的支付方式为';
 $_LANG['order_amount'] = '您的应付款金额为';
-$_LANG['remember_order_number'] = '感谢您在本店购物！您的订单已提交成功，请记住您的订单号';
+$_LANG['remember_order_number'] = '您的订单已提交成功，我们的工作人员会马上联系您。请记住您的订单号';
 $_LANG['back_home'] = '<a href="index.php">返回首页</a>';
 $_LANG['goto_user_center'] = '<a href="user.php">用户中心</a>';
 $_LANG['order_submit_back'] = '您可以 %s 或去 %s';

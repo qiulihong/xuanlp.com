@@ -3,11 +3,11 @@
  <div class="box_1">
   <h3><span><?php echo $this->_var['lang']['article_cat']; ?></span></h3>
   <div class="boxCenterList RelaArticle">
-    <?php $_from = $this->_var['article_categories']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'cat_0_72573600_1320810399');if (count($_from)):
-    foreach ($_from AS $this->_var['cat_0_72573600_1320810399']):
+    <?php $_from = $this->_var['article_categories']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'cat_0_99816400_1321249140');if (count($_from)):
+    foreach ($_from AS $this->_var['cat_0_99816400_1321249140']):
 ?>
-    <a href="<?php echo $this->_var['cat_0_72573600_1320810399']['url']; ?>"><?php echo htmlspecialchars($this->_var['cat_0_72573600_1320810399']['name']); ?></a><br />
-      <?php $_from = $this->_var['cat_0_72573600_1320810399']['children']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'child');if (count($_from)):
+    <a href="<?php echo $this->_var['cat_0_99816400_1321249140']['url']; ?>"><?php echo htmlspecialchars($this->_var['cat_0_99816400_1321249140']['name']); ?></a><br />
+      <?php $_from = $this->_var['cat_0_99816400_1321249140']['children']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'child');if (count($_from)):
     foreach ($_from AS $this->_var['child']):
 ?>
       <a href="<?php echo $this->_var['child']['url']; ?>" style="background-image:none;"><?php echo htmlspecialchars($this->_var['child']['name']); ?></a><br />
