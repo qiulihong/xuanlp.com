@@ -73,12 +73,12 @@
 			<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 			</div>
 			<?php endif; ?>
-			<?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_69613200_1321238717');if (count($_from)):
-    foreach ($_from AS $this->_var['filter_attr_0_69613200_1321238717']):
+			<?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_71923300_1321365548');if (count($_from)):
+    foreach ($_from AS $this->_var['filter_attr_0_71923300_1321365548']):
 ?>
       <div class="screeBox">
-			<strong><?php echo htmlspecialchars($this->_var['filter_attr_0_69613200_1321238717']['filter_attr_name']); ?> :</strong>
-			<?php $_from = $this->_var['filter_attr_0_69613200_1321238717']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
+			<strong><?php echo htmlspecialchars($this->_var['filter_attr_0_71923300_1321365548']['filter_attr_name']); ?> :</strong>
+			<?php $_from = $this->_var['filter_attr_0_71923300_1321365548']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
     foreach ($_from AS $this->_var['attr']):
 ?>
 				<?php if ($this->_var['attr']['selected']): ?>
@@ -95,7 +95,6 @@
 	  <?php endif; ?>
 	 
    
-<?php echo $this->fetch('library/recommend_best.lbi'); ?>
 <?php echo $this->fetch('library/goods_list.lbi'); ?>
 <?php echo $this->fetch('library/pages.lbi'); ?>
 

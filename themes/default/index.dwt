@@ -184,7 +184,7 @@ html {filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);}
   <dl class="notice"><!-- 公告-->
     <dt></dt>
         <!--{foreach from=$new_articles item=article}-->
-      	<dd style="border:none;">[<a href="{$article.cat_url}">{$article.cat_name}</a>]<a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:20:"...":true}</a></dd>
+      	<dd style="border:none;">[<a href="{$article.cat_url}">{$article.cat_name}</a>]<a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:12:"...":true}</a></dd>
 		<!--{/foreach}-->
       </dl>
 </div>
