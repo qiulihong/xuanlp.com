@@ -16,7 +16,7 @@ $data = array (
   1 => 
   array (
     'cat_id' => '1',
-    'cat_name' => '粮油土特产',
+    'cat_name' => '粮油特产',
     'measure_unit' => '',
     'parent_id' => '0',
     'is_show' => '1',
@@ -29,7 +29,7 @@ $data = array (
   2 => 
   array (
     'cat_id' => '12',
-    'cat_name' => '数码小家电',
+    'cat_name' => '数码家电',
     'measure_unit' => '',
     'parent_id' => '0',
     'is_show' => '1',

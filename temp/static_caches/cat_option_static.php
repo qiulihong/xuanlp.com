@@ -19,7 +19,7 @@ $data = array (
   1 => 
   array (
     'cat_id' => '1',
-    'cat_name' => '粮油土特产',
+    'cat_name' => '粮油特产',
     'measure_unit' => '',
     'parent_id' => '0',
     'is_show' => '1',
@@ -30,12 +30,12 @@ $data = array (
     'goods_num' => '10',
     'level' => 0,
     'id' => '1',
-    'name' => '粮油土特产',
+    'name' => '粮油特产',
   ),
   12 => 
   array (
     'cat_id' => '12',
-    'cat_name' => '数码小家电',
+    'cat_name' => '数码家电',
     'measure_unit' => '',
     'parent_id' => '0',
     'is_show' => '1',
@@ -46,7 +46,7 @@ $data = array (
     'goods_num' => '35',
     'level' => 0,
     'id' => '12',
-    'name' => '数码小家电',
+    'name' => '数码家电',
   ),
   17 => 
   array (

@@ -155,24 +155,24 @@ html {filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);}
   <div class="left" id="flashleft"> 
   <div class="flash">
     <ul id="fbox">
-            <li style="display: none;" class="switch_item"><a href="http://www.quwan.com/zhuanti_show.php?id=610&amp;fm=flashbox" target="_blank" title="Homee星座杯加价换购"><img src="themes/default/images/beizi2.jpg" alt="Homee星座杯加价换购" height="370" width="685"></a></li>
-            <li style="display: none;" class="switch_item"><a href="http://www.quwan.com/zhuanti_show.php?id=601&amp;fm=flashbox" target="_blank" title="焖烧罐特价48元"><img src="themes/default/images/flashbox_9.jpg" alt="焖烧罐特价48元" height="370" width="685"></a></li>
-            <li style="display: list-item;" class="switch_item current-li"><a href="http://www.quwan.com/zhuanti_show.php?id=607&amp;fm=flashbox" target="_blank" title="让秋季水润润"><img src="themes/default/images/baoshi.jpg" alt="让秋季水润润" height="370" width="685"></a></li>
-            <li style="display: none;" class="switch_item"><a href="http://www.quwan.com/zhuanti_show.php?id=608&amp;fm=flashbox" target="_blank" title="便携装饰U盘8折起"><img src="themes/default/images/U.jpg" alt="便携装饰U盘8折起" height="370" width="685"></a></li>
-            <li style="display: none;" class="switch_item"><a href="http://www.quwan.com/zhuanti_show.php?id=599" target="_blank" title="室内运动7折起"><img src="themes/default/images/Flashbox.jpg" alt="室内运动7折起" height="370" width="685"></a></li>
+            <li style="display: none;" class="switch_item"><a href="" target="_blank" title="Homee星座杯加价换购"><img src="themes/default/images/beizi2.jpg" alt="Homee星座杯加价换购" height="370" width="685"></a></li>
+            <li style="display: none;" class="switch_item"><a href="" target="_blank" title="焖烧罐特价48元"><img src="themes/default/images/flashbox_9.jpg" alt="焖烧罐特价48元" height="370" width="685"></a></li>
+            <li style="display: list-item;" class="switch_item current-li"><a href="" target="_blank" title="让秋季水润润"><img src="themes/default/images/baoshi.jpg" alt="让秋季水润润" height="370" width="685"></a></li>
+            <li style="display: none;" class="switch_item"><a href="" target="_blank" title="便携装饰U盘8折起"><img src="themes/default/images/U.jpg" alt="便携装饰U盘8折起" height="370" width="685"></a></li>
+            <li style="display: none;" class="switch_item"><a href="" target="_blank" title="室内运动7折起"><img src="themes/default/images/Flashbox.jpg" alt="室内运动7折起" height="370" width="685"></a></li>
     </ul>
     <ul id="fbar">
-            <li class="fbar"><a href="http://www.quwan.com/zhuanti_show.php?id=610&amp;fm=flashbox" target="_blank">星座杯加价换购</a></li>
-            <li class="fbar"><a href="http://www.quwan.com/zhuanti_show.php?id=601&amp;fm=flashbox" target="_blank">焖烧罐特价48元</a></li>
-            <li class="fbar fbar_on"><a href="http://www.quwan.com/zhuanti_show.php?id=607&amp;fm=flashbox" target="_blank">加湿器特惠8折起</a></li>
-            <li class="fbar"><a href="http://www.quwan.com/zhuanti_show.php?id=608&amp;fm=flashbox" target="_blank">便携装饰U盘8折起</a></li>
-            <li class="fbar" style="margin-right:0; width:137px;"><a href="http://www.quwan.com/zhuanti_show.php?id=599" target="_blank">室内运动7折起</a></li>
+            <li class="fbar"><a href="" target="_blank">星座杯加价换购</a></li>
+            <li class="fbar"><a href="" target="_blank">焖烧罐特价48元</a></li>
+            <li class="fbar fbar_on"><a href="" target="_blank">加湿器特惠8折起</a></li>
+            <li class="fbar"><a href="" target="_blank">便携装饰U盘8折起</a></li>
+            <li class="fbar" style="margin-right:0; width:137px;"><a href="" target="_blank">室内运动7折起</a></li>
 	</ul>
   </div>
  	 
-         <div class="f_ad "><a href="http://www.quwan.com/search.php?encode=YTozOntzOjg6ImtleXdvcmRzIjtzOjIxOiLljaHnvZflhbDnmoTljYHmjIfpl7QiO3M6NjoiZW5jb2RlIjtzOjA6IiI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjEzMTk1OTU2MzU7fQ==&amp;kw=%E9%8D%97%EF%BC%84%E7%B6%8F%E9%8D%8F%E6%89%AE%E6%AE%91%E9%8D%97%E4%BD%B9%E5%AF%9A%E9%97%82" target="_blank" title="美人鱼金属书签"><img src="themes/default/images/flashboxxia32.jpg" alt="美人鱼金属书签" height="130" width="218"></a></div>
-            <div class="f_ad "><a href="http://www.quwan.com/goods-20197.html?fm=searchlist" target="_blank" title="80后怀旧大礼包"><img src="themes/default/images/flashboxxia42.jpg" alt="80后怀旧大礼包" height="130" width="218"></a></div>
-            <div class="f_ad f_ad3"><a href="http://www.quwan.com/zhuanti_show.php?id=604&amp;fm=flashbox" target="_blank" title="万圣节鬼魅之夜"><img src="themes/default/images/flashboxxia14.jpg" alt="万圣节鬼魅之夜" height="130" width="218"></a></div>
+         <div class="f_ad "><a href="" target="_blank" title="美人鱼金属书签"><img src="themes/default/images/flashboxxia32.jpg" alt="美人鱼金属书签" height="130" width="218"></a></div>
+            <div class="f_ad "><a href="" target="_blank" title="80后怀旧大礼包"><img src="themes/default/images/flashboxxia42.jpg" alt="80后怀旧大礼包" height="130" width="218"></a></div>
+            <div class="f_ad f_ad3"><a href="" target="_blank" title="万圣节鬼魅之夜"><img src="themes/default/images/flashboxxia14.jpg" alt="万圣节鬼魅之夜" height="130" width="218"></a></div>
                           <div class="clear"></div>
 </div>
 <div class="right" id="flashright">
@@ -196,7 +196,7 @@ html {filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);}
 <div class="left"> 
   
   <div class="new">
-    <div class="ntop"><span class="fr newmore"><a class="more" id="more" href="http://www.quwan.com/search.php?intro=new&amp;fm=indexNew" target="_blank">更多</a></span>
+    <div class="ntop"><span class="fr newmore"><a class="more" id="more" href="" target="_blank">更多</a></span>
       <ul id="nbar">
         <li class="nbar"></li>
         <li class="nbar nbar_on"></li>
@@ -308,10 +308,10 @@ if ($this->_foreach['top_goods']['total'] > 0):
 </div>
 <div class="clear"></div>
 <div class="left">
-                          <div class="ad ad4"><a href="http://www.quwan.com/zhuanti_show.php?id=589&amp;fm=flashbox" title="日式筷子套装特惠价19元" target="_blank"><img src="themes/default/images/xinpinxia2.jpg" alt="日式筷子套装特惠价19元" height="130" width="335"></a></div>
-           <div class="ad "><a href="http://www.quwan.com/xiaoyuandaili?fm=shouye5" title="校园代理" target="_blank"><img src="themes/default/images/2.jpg" alt="校园代理" height="130" width="335"></a></div>
+                          <div class="ad ad4"><a href="" title="日式筷子套装特惠价19元" target="_blank"><img src="themes/default/images/xinpinxia2.jpg" alt="日式筷子套装特惠价19元" height="130" width="335"></a></div>
+           <div class="ad "><a href="" title="校园代理" target="_blank"><img src="themes/default/images/2.jpg" alt="校园代理" height="130" width="335"></a></div>
             </div>
-                  <div class="right" id="ad6"><a href="http://www.quwan.com/zhuanti.php?ztno=zhuanti_201137" title="贩卖时光，还有温柔" target="_blank"><img src="themes/default/images/260x1301.jpg" alt="贩卖时光，还有温柔" height="130" width="260"></a></div>
+                  <div class="right" id="ad6"><a href="" title="贩卖时光，还有温柔" target="_blank"><img src="themes/default/images/260x1301.jpg" alt="贩卖时光，还有温柔" height="130" width="260"></a></div>
 <div class="clear"></div>
 <div class="sline"></div>      
 	

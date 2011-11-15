@@ -187,11 +187,10 @@ var adminId = "<?php echo $this->_var['admin_id']; ?>";
 </head>
 <body>
 <div id="header-div">
-  <div id="logo-div" style="bgcolor:#000000;"><img src="images/ecshop_logo.gif" alt="ECSHOP - power for e-commerce" /></div>
+  <div id="logo-div" style="bgcolor:#000000;"><img src="images/ecshop_logo.gif" alt="" /></div>
   <div id="license-div" style="bgcolor:#000000;"></div>
   <div id="submenu-div">
     <ul>
-      <li><a href="index.php?act=about_us" target="main-frame"><?php echo $this->_var['lang']['about']; ?></a></li>
       <li><a href="javascript:web_address();"><?php echo $this->_var['lang']['help']; ?></a></li>
       <li><a href="javascript:modalDialog('index.php?act=calculator', 'calculator', 340, 250)"><?php echo $this->_var['lang']['toggle_calculator']; ?></a></li>
       <li><a href="../" target="_blank"><?php echo $this->_var['lang']['preview']; ?></a></li>

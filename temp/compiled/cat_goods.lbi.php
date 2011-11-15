@@ -19,15 +19,15 @@
 		  <a href="http://www.quwan.com/category-784-sc1101-channel.html?fm=mainnav&amp;fm=living" title="精品生态羊毛被" target="_blank"><img original="http://i2.quwan.com/images/index/201110/2/syd(2).jpg" src="themes/default/images/grey.gif" height="420" width="185"></a> 
 		</div-->
 		<div class="f1">
-      <?php $_from = $this->_var['cat_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_60857100_1321235636');if (count($_from)):
-    foreach ($_from AS $this->_var['goods_0_60857100_1321235636']):
+      <?php $_from = $this->_var['cat_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_51345700_1321363944');if (count($_from)):
+    foreach ($_from AS $this->_var['goods_0_51345700_1321363944']):
 ?>
 			<ul class="cat_ul">
-        <li class="cat_img"> <a target="_blank" title="<?php echo htmlspecialchars($this->_var['goods_0_60857100_1321235636']['name']); ?>" href="<?php echo $this->_var['goods_0_60857100_1321235636']['url']; ?>"><img original="<?php echo $this->_var['goods_0_60857100_1321235636']['thumb']; ?>" alt="<?php echo htmlspecialchars($this->_var['goods_0_60857100_1321235636']['name']); ?>" src="<?php echo $this->_var['goods_0_60857100_1321235636']['thumb']; ?>" height="140" width="140"></a> 
+        <li class="cat_img"> <a target="_blank" title="<?php echo htmlspecialchars($this->_var['goods_0_51345700_1321363944']['name']); ?>" href="<?php echo $this->_var['goods_0_51345700_1321363944']['url']; ?>"><img original="<?php echo $this->_var['goods_0_51345700_1321363944']['thumb']; ?>" alt="<?php echo htmlspecialchars($this->_var['goods_0_51345700_1321363944']['name']); ?>" src="<?php echo $this->_var['goods_0_51345700_1321363944']['thumb']; ?>" height="140" width="140"></a> 
            
         </li>
-        <li><a target="_blank" title="<?php echo htmlspecialchars($this->_var['goods_0_60857100_1321235636']['name']); ?>" href="<?php echo $this->_var['goods_0_60857100_1321235636']['url']; ?>"><?php echo htmlspecialchars($this->_var['goods_0_60857100_1321235636']['short_name']); ?></a></li>
-        <li><span><?php echo $this->_var['goods_0_60857100_1321235636']['shop_price']; ?></span></li>
+        <li><a target="_blank" title="<?php echo htmlspecialchars($this->_var['goods_0_51345700_1321363944']['name']); ?>" href="<?php echo $this->_var['goods_0_51345700_1321363944']['url']; ?>"><?php echo htmlspecialchars($this->_var['goods_0_51345700_1321363944']['short_name']); ?></a></li>
+        <li><span><?php echo $this->_var['goods_0_51345700_1321363944']['shop_price']; ?></span></li>
 			</ul>
       <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 		</div>
